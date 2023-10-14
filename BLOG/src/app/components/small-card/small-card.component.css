@@ -1,0 +1,39 @@
+.small-card{
+	/* background-color: pink; */
+	align-items: flex-start;
+	padding:1rem;
+	border: solid black 2px;
+	width:100%;
+
+}
+
+.article,a{
+	display:flex;
+	flex-direction: row;
+}
+
+.imag{}
+
+.title{
+	/* background-color: green; */
+	margin-left: 2%;
+	margin-top:0.5rem;
+	font-size:2.2rem;
+}
+
+/*Só desabilita a renderização se for inline style*/
+.description{
+	/* background-color: lightgray; */
+	display:none;
+	color:blue;
+}
+
+.author{
+	/* background-color: lightpink; */
+	display: flex;
+	flex-direction: column;
+	align-items:flex-end;
+}
+.separator{
+	margin-top:1%;
+}

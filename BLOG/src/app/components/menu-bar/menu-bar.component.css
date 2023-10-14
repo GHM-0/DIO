@@ -1,0 +1,21 @@
+.menuList{
+	display: flex;
+	flex-direction: row;
+	gap:2%;
+	list-style-type: none;
+	margin:1%;
+}
+
+/* .menuItem a{
+	color:blue;
+}
+.menuItem a:visited{
+	color:green;
+} */
+
+.menuItem a:hover{
+ color:red;
+}
+
+/*Separar em arquivos diferentes*/
+@media only screen and (max-width:600px){}

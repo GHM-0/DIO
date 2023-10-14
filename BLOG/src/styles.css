@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+img{
+	user-select: none;
+	pointer-events: none;
+}
+*{
+	font-family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+	color:black;
+	background-color: aliceblue;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+a{text-decoration: none;}
+
+@media only screen and (max-width:600px){}

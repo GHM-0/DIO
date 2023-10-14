@@ -1,0 +1,18 @@
+<article class="big-card">
+	<div class="article">
+	<a [routerLink]="['article',id]">
+		<img class="imag"
+		src="{{photoCover}}"
+		srcset=""
+		alt="BIGCARD-IMAGE"
+		height="400px"
+		width="500px">
+	  	<h1 class="title">{{title}}</h1>
+			<p class="description">{{description}}<br></p>
+			<p class="content">{{paragraph}}</p>
+		</a>
+		<a href="#AuthorID"><!--[routerLink]="['author',id]-->
+			<p class="author">{{author}}</p>
+		</a>
+	</div>
+</article>

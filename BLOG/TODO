@@ -1,0 +1,15 @@
+css 3
+
+Quando clicar no titulo ou on scroll down/mouse wheel down
+reduzir o title to 1/2.
+
+Quando abrir a pagina colocar o titulo em destaque
+
+
+                (data)   (Style)    (Style)
+Usar herança em Article | card   <-/ big-card / small-card
+
+------
+PAGE para Author
+----
+photoCover deve ser o item 0 de um array contendo todas as imagens da postagem
