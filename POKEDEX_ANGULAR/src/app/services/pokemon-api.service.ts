@@ -1,14 +1,14 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import {environment} from'src/environments/environment';
+import {environment} from 'src/environments/environment';
 import {PokemonData} from 'src/app/models/pokemonData'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonAPIService {
- private baseURL:string='';
+ 	private baseURL:string='';
 	private pokeData:PokemonData|any;
 
   constructor(private http:HttpClient) {

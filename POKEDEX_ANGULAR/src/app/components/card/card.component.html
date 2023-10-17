@@ -1,0 +1,12 @@
+<div class="card">
+	<h3>{{pokemon.name}}</h3>
+	<div class="body">
+		 <!--src="{{pokemon?.sprites.front_default}}"-->
+		<img [src]="pokemon.sprites.front_default" alt="Quem é esse Pokemon?" srcset="">
+	</div>
+	<div class="stats">
+			<span class="attr" *ngFor="let type of pokemon.types">{{type.type.name}}</span>
+	</div>
+</div>
+
+
