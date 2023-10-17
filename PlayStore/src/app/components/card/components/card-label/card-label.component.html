@@ -1,0 +1,12 @@
+<section class="container">
+  <h3>Play it Now!</h3>
+  <ul class="console">
+    <li *ngFor="let cons of consoles; let i=index;">
+      {{cons}}<span *ngIf="cons!==consoles[consoles.length-1]" class="separator">|</span>
+    </li>
+  </ul>
+  <div class="info">
+    <p class="name">{{name}}</p>
+    <p class="price">&nbsp;{{price}}</p>
+  </div>
+</section>

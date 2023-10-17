@@ -1,0 +1,15 @@
+.container{
+/*   border:1px solid pink; */
+ /*  background-color: aqua; */
+
+
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  width:90%;
+  height: 100%;
+  margin:auto;
+  padding-top:3%;
+}

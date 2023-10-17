@@ -1,0 +1,19 @@
+.container{
+  display:flex;
+  background-color: #0D0D0D/* 80 */;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  /* opacity: 70%; */
+  font-size: 12px;
+  font-weight: bold;
+  bottom:90px;
+  right:0;
+  height: 40px;
+  padding: 0px 50px;
+  transition: transform 0.8s;
+  &:hover{
+    transform: rotateX(180deg);
+  }
+}
