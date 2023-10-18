@@ -43,9 +43,12 @@ public class Main {
                     if(selecionados.size() < nSelecionados) {
                         if (recebeligacao.booleanValue()) {
                             System.out.println("candidato" + c.getNome() + " contactado apos " + count + " tentavias");
-                            if(!selecionados.contains(c)){
+
+                            //Se n�o usar break
+//                            if(!selecionados.contains(c)){
                                 selecionados.add(c);
-                            }
+//                            }
+                            break;
                         }
                         System.out.println("candidato n�o pode ser contatado " + count);
                 }
