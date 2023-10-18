@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import {dataMock} from '../../../data/dataMock';
 
@@ -50,10 +50,19 @@ Nunc efficitur ac massa quis blandit. Donec varius volutpat molestie. Morbi a ac
 bibendum rhoncus. Sed dictum dictum diam quis pretium. Morbi accumsan orci ornare, eleifend tortor ac, consequat nibh.
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.`;
 
-constructor(private  route:ActivatedRoute){}
+constructor(private nav:Router, private  route:ActivatedRoute){
+/* 			this.route.firstChild?.params.subscribe(param=>console.log("Parameters in URL:"+param));
+			this.route.firstChild?.queryParams.subscribe(args => console.log("Variaveis passadas na url:"+args)); */
+}
+
 ngOnInit(){
 	this.route.paramMap.subscribe(value => this.id=value.get("id"));
 	this.setValuesToArticle(this.id);
+
+	//Redirecinoa para home apois 5 segundos
+/* 	setInterval(()=>{
+		this.nav.navigate(['/']);
+	},5000) */
 }
 
 setValuesToArticle(id:string|null){

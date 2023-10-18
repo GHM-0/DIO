@@ -8,41 +8,53 @@ import java.util.Random;
 
 public class Main {
 
-    static final double salarioBase=2000;  //Criterio
+ // salarioBase=2000 by DEFAULT Criterio
 
-    static int contador=0;
-
-    static List<Candidato> processoSeletivo(List<Candidato> candidatos, int nSelecionados,Double criterio){
-        List<Candidato> selecionados=new ArrayList<Candidato>(nSelecionados){};
-        Integer contador=nSelecionados;
-
+    static List<Candidato> processoSeletivo(List<Candidato> candidatos,Double criterio){
+        List<Candidato> selecionados=new ArrayList<Candidato>(){};
         candidatos.stream().forEach(c->{
-            if(!(c.getPretencaoSalarial()>=criterio)){
-                System.out.println("Ligar Para o Candidato! "+c.getNome()+" "+c.getTelefone());
-                selecionados.add(c);
-            }else if(c.getPretencaoSalarial()==criterio){
-                System.out.println("Ligar com Contra Proposta Para o Candidato! "+c.getNome()+" "+c.getTelefone());
-            }else{
-                System.out.println("... aguardar Analise dos demais candidatos");
-            }
+
+                if (!(c.getPretencaoSalarial() >= criterio)) {
+                    System.out.println("Ligar Para o Candidato! " + c.getNome() + " " + c.getTelefone());
+                    selecionados.add(c);
+                } else if (c.getPretencaoSalarial() == criterio) {
+                    System.out.println("Ligar com Contra Proposta Para o Candidato! " + c.getNome() + " " + c.getTelefone());
+                    //? result Contra proposta?
+                } else {
+                    System.out.println("... aguardar Analise dos demais candidatos");
+                }
         });
-    return selecionados;
+        return selecionados;
     }
 
-    static void contatarCandidato(List<Candidato> candidatos) {
-        Boolean recebeligacao = new Random().nextBoolean();
-        Integer tentativas = 3;
+    static void contatarCandidato(List<Candidato> candidatos,int tentativas, int nSelecionados) {
+       System.out.println("Candidatos Selecionados -> "+candidatos.size());
+        List<Candidato> selecionados=new ArrayList<Candidato>(nSelecionados){}; //Universo
 
-        candidatos.stream().forEach(c -> {
+        Boolean recebeligacao = new Random().nextBoolean();                    //Criterio
 
-            for (Integer count = 1; count == tentativas; count++) {
-                if (recebeligacao) {
-                    System.out.println("candidato" + c.getNome() + " contactado apos " + count + " tenatavias");
-                } else if(count==3){
-                    System.out.println("candidato n�o pode ser contatado");
+        System.out.println("Inicial: n Contratados: "+selecionados.size() );
+        System.out.println("SELECIONADOS :"+nSelecionados);
+
+            for ( Candidato c : candidatos) {
+                System.out.println("tentando Contatar :"+c.getNome());
+
+                for(int count=1;count <= tentativas;count++) {
+                    if(selecionados.size() < nSelecionados) {
+                        if (recebeligacao.booleanValue()) {
+                            System.out.println("candidato" + c.getNome() + " contactado apos " + count + " tentavias");
+                            if(!selecionados.contains(c)){
+                                selecionados.add(c);
+                            }
+                        }
+                        System.out.println("candidato n�o pode ser contatado " + count);
                 }
             }
-        });
+        }
+        System.out.println("Final: n Contratados: "+selecionados.size() );
+            selecionados.forEach(c->{
+                System.out.println(" CONTRATADO -> "+c.getNome());
+            });
     }
 
 
@@ -87,9 +99,8 @@ public class Main {
         candidatos.add(c17);
         candidatos.add(c18);
 
-        processoSeletivo(candidatos,nSelecionados,salarioBase).stream().forEach(sc->{
-            System.out.println("Selecionado :"+sc.getNome());
-        });
-
+        contatarCandidato(
+                processoSeletivo(candidatos,salarioBase),3,nSelecionados
+        );
     }
 }
