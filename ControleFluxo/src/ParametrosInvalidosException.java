@@ -1,7 +1,8 @@
 public class ParametrosInvalidosException extends RuntimeException{
-private final String message="Parametros Invalidos";
-    public ParametrosInvalidosException(){
+private String message="Parametros Invalidos";
+    public ParametrosInvalidosException(String message){
         super();
+        this.message=message;
     }
 
     @Override

@@ -10,9 +10,9 @@ public class Contador {
 
         Scanner input=new Scanner(System.in);
 
-        //Trabalha  excessoes
+        //Trabalha  exceçoes
         //Se o primeiro for maior que o segundo "ParametrosInvalidosException"
-        // se n�o subritrai o segundo do primeiro n iteraç�es no for
+        //Se n�o subritrai o segundo do primeiro n iteraç�es no for
 
         try{
             int parUm=Integer.valueOf(input.nextInt());
@@ -35,7 +35,7 @@ public class Contador {
                    System.out.println("-->:" + count);
                }
            }else{
-               throw new ParametrosInvalidosException();
+               throw new ParametrosInvalidosException("O segundo parametro deve ser maior que o primeiro");
            }
     }
 }
