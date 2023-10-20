@@ -23,7 +23,7 @@ public class Card {
     @Column(unique = true)
     private String number;
     @Min(value = 500) @Max(value=200000)
-    @Column(name="_limit",precision = 2)
+    @Column(name="_limit")
     private BigDecimal limit;
     private String printedName;
     private Date emission;

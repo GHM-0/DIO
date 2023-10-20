@@ -18,9 +18,8 @@ public class Account {
     @Column(unique = true)
     private String number;
     private String agency;
-    @Column(precision = 2)
     private BigDecimal balance;
-    @Column(name="_limit",precision = 2)
+    @Column(name="_limit")
     private BigDecimal limit;
 
     @OneToOne //@ManyToOne(optional = false)
