@@ -10,6 +10,7 @@ import org.hibernate.validator.constraints.Range;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,6 +21,10 @@ public class Card {
 
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    private boolean status;
+    @OneToMany
+    private List<Restrictions> restrictions;
     @Column(unique = true)
     private String number;
     @Min(value = 500) @Max(value=200000)

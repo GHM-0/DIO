@@ -19,13 +19,14 @@ public class User {
 
     @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String name;
     @OneToOne
     private Account account;
     @OneToMany
     private List<Feature> features;
-    @OneToOne
-    private Card card;
+    @OneToMany
+    private List<Card> card;
     @OneToMany
     private List<News> news;
 
