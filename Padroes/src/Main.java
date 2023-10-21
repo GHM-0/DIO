@@ -1,5 +1,5 @@
-import padroes.SingletonEager;
-import padroes.SingletonLazy;
+import padroes.Singleton.SingletonEager;
+import padroes.Singleton.SingletonLazy;
 
 public class Main {
     public static void main(String[] args) {

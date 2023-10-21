@@ -1,4 +1,4 @@
-package padroes;
+package padroes.Singleton;
 
 public class SingletonLazyHolder {
     private static class InstanceHolder{
