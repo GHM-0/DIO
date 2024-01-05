@@ -14,7 +14,19 @@ class Formacao(var nome: String,var nivel:Nivel,  vararg grade: ConteudoEducacio
 
     fun matricular(usuario: Usuario) {
         inscritos.add(usuario)
-        println("${usuario} inscrição realizada com sucesso na formação $nome")
+        println("${usuario.nome},${usuario.matricula}, inscrição realizada com sucesso na formação $nome")
+    }
+    fun cancelarMatricula(usuario: Usuario){
+        if(usuario in inscritos){
+            inscritos.remove(usuario)
+            println("${usuario.nome}," +
+                    "${usuario.matricula}"+
+                    " inscrição cancelada com sucesso na formação $nome")
+        }else{
+            println("${usuario.nome}," +
+                    "${usuario.matricula}" +
+                    "Falha ao Cancelar Inscrição, usuário não cadastrado na formação:$nome")
+        }
     }
 
     fun addToGrade(vararg ngrade: ConteudoEducacional){
@@ -29,19 +41,6 @@ class Formacao(var nome: String,var nivel:Nivel,  vararg grade: ConteudoEducacio
             println("Error, Já há inscritos na Formação $nome")
             }
         }
-
-    fun cancelarMatricula(usuario: Usuario){
-        if(usuario in inscritos){
-            inscritos.remove(usuario)
-            println("${usuario.nome}," +
-                    "${usuario.matricula}"+
-                    " inscrição cancelada com sucesso na formação $nome")
-        }else{
-            println("${usuario.nome}," +
-                    "${usuario.matricula}" +
-                    "Falha ao Cancelar Inscrição, usuário não cadastrado na formação:$nome")
-        }
-    }
 }
 
 
@@ -62,7 +61,7 @@ fun main() {
     var Curso_Java=Formacao("Java",Nivel.INTERMEDIARIO,java1,java2,java3);
 
     // Mostrar Grade Curricular
-    println("Grade Curricular ${Curso_Java.nome}, número de componentes=${Curso_Java.grade.size}");
+    println("Grade Curricular ${Curso_Java.nome}, ${Curso_Java.nivel}, número de componentes=${Curso_Java.grade.size}");
     Curso_Java.grade.forEach { e -> println(e.nome) };
     println("");
 
@@ -72,7 +71,7 @@ fun main() {
     var user3=Usuario("Três","TRÊS3");
     var user4=Usuario("Quatro","QUATRO4");
 
-    // Inscrição do Usuário na Formação
+    // Inscrição de Usuários na Formação
     println("Inscrições para a Formação de JAVA:");
     Curso_Java.matricular(user1);
     Curso_Java.matricular(user2);
@@ -82,6 +81,11 @@ fun main() {
     println("Cancelamento de Inscrições para a Formação de JAVA:");
     Curso_Java.cancelarMatricula(user3);
     Curso_Java.cancelarMatricula(user2);
+    println("");
+
+    // Inscrição do Usuário na Formação
+    println("Inscrição para a Formação de JAVA:");
+    Curso_Java.matricular(user4);
     println("");
 
     // Adicionar a grade Curricular
