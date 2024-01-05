@@ -64,15 +64,19 @@ const cardData=[
 }];
 
 async function resetDuel(){
-    view.cardSprites.avatar.style.display="none";
-    view.cardSprites.name.innerText="Selecione";
-    view.cardSprites.type.innerText="uma carta";
+    hideCardsInfo();
     actions.button.style.display="none";
 
     view.fieldCards.player.style.display="none";
     view.fieldCards.computer.style.display="none";
     
     main();
+}
+
+function hideCardsInfo() {
+    view.cardSprites.avatar.style.display = "none";
+    view.cardSprites.name.innerText = "Selecione";
+    view.cardSprites.type.innerText = "uma carta";
 }
 
 async function drawCards(cardNumbers,fieldSide){

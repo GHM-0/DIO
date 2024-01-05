@@ -32,45 +32,53 @@ body{
             user-select: none;
             position:relative;
             text-transform: uppercase;
+
             >span{
                 margin: 0 0 0 -08px; /*fix cenbtralização letras*/
                 bottom: 20px;
                 position: absolute;
                 font-size: 1.13rem;
             }
-        }
-
-        >.white{
-            background:linear-gradient(#fff 96%, #eee 4%);
-            width: 70px;
-            height: 230px;
-            border-radius: 8px;
-            border:1px solid black;
-
-            .active{
-                background: linear-gradient(#fff 0%,#eee 100%);
-                box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
+            &.hide{
+                >span{
+                    display:none;
+                }
             }
-
-        }
-
-        >.black{
-            background:linear-gradient(#333,#000);
-            width: 44px;
-            height: 140px;
-            z-index:2;
-            margin:0px -22px 0 -22px;
-            border-radius: 0 0 5px 5px;
-            border:1px solid black;
-            border: 0.1px solid #fff;
-
-            .active{
-                box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
-                background: linear-gradient(#000,#434343);
-            }
+            
+            /* Impares Brancas*/
+            &:nth-child(odd) {
+                background:linear-gradient(#fff 96%, #eee 4%);
+                width: 70px;
+                height: 230px;
+                border-radius: 8px;
+                border:1px solid black;
+    
+                &.active,&:active{
+                    background: linear-gradient(#fff 0%,#eee 100%);
+                    box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
+                }
+              }
+              
+              /*Pares Pretas*/
+              &:nth-child(even) {
+                background:linear-gradient(#333,#000);
+                width: 44px;
+                height: 140px;
+                z-index:2;
+                margin:0px -22px 0 -22px;
+                border-radius: 0 0 5px 5px;
+                border:1px solid black;
+                border: 0.1px solid #fff;
+    
+                &.active,&:active{
+                    box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
+                    background: linear-gradient(#000,#434343);
+                }
+              }
         }
     }
 
+    /*Semanticamente Errado*/
     >header{
         display: flex;
         flex-direction: row;

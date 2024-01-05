@@ -47,8 +47,8 @@ class Formacao(var nome: String,var nivel:Nivel,  vararg grade: ConteudoEducacio
 
 fun main() {
 //    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    // Inscrito == Matriculado? Escolher uma nomenclatura clara e homogenia
-    // Uma vez havendo inscritos a grade deveria ser imutável
+    // Inscrito == Matriculado? Escolher uma nomenclatura clara e homogenia para todas as funções
+    // Uma vez havendo inscritos a grade deve ser imutável
 
 //    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
 
