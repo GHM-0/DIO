@@ -1,4 +1,6 @@
-CREATE TABLE customer (
+--CREATE DATABASE IF NOT EXISTS restapi;
+--USE restapi;
+CREATE TABLE customers (
   id BIGINT AUTO_INCREMENT NOT NULL,
    first_name VARCHAR(255) NOT NULL,
    last_name VARCHAR(255) NOT NULL,
@@ -12,11 +14,11 @@ CREATE TABLE customer (
    CONSTRAINT pk_customer PRIMARY KEY (id)
 );
 
-ALTER TABLE customer ADD CONSTRAINT uc_customer_cfp UNIQUE (cfp);
+ALTER TABLE customers ADD CONSTRAINT uc_customer_cfp UNIQUE (cfp);
 
-ALTER TABLE customer ADD CONSTRAINT uc_customer_email UNIQUE (email);
+ALTER TABLE customers ADD CONSTRAINT uc_customer_email UNIQUE (email);
 
-CREATE TABLE credit (
+CREATE TABLE credits (
   id BIGINT AUTO_INCREMENT NOT NULL,
    credit_code BINARY(16) NOT NULL,
    customer_id BIGINT NOT NULL,
@@ -27,6 +29,6 @@ CREATE TABLE credit (
    CONSTRAINT pk_credit PRIMARY KEY (id)
 );
 
-ALTER TABLE credit ADD CONSTRAINT uc_credit_credit_code UNIQUE (credit_code);
+ALTER TABLE credits ADD CONSTRAINT uc_credit_credit_code UNIQUE (credit_code);
 
-ALTER TABLE credit ADD CONSTRAINT FK_CREDIT_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customer (id);
+ALTER TABLE credits ADD CONSTRAINT FK_CREDIT_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customers (id);
