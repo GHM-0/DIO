@@ -1,0 +1,36 @@
+
+Sistema Bancário
+
+    O.K
+    -Saque, Deposito e Extrato em Métodos Separados
+
+    TODO
+    saque
+    Receber parâmetros apenas por nome * no inicio
+
+    args    saldo,valor,extrato,limite,numero_saques,limite_saques
+
+    retornos saldo e extrato
+
+    deposito
+    Receber parâmetros apenas por posição | no final
+
+    args    saldo, valor, extrato
+
+    retornos saldo e extrato
+
+    extrato
+    args posicionais saldo
+    args nomeados extrato
+
+    -Cadastrar Cliente e Criar Nova Conta Bancária
+
+    TODO
+
+    Armazenar usuários em Lista
+
+    Usuário: nome, data_nascimento, cpf e endereço
+    endereço = logradouro, número, bairro, cidade, sigla - estado Deve ser armazenado em um DICT
+    número cpf
+
+    * filtrar usuários por cpf
