@@ -1,6 +1,7 @@
-from src.Banco.Transacao.Transacao import Transacao
-from src.Banco.Transacao.Conta import Conta
 from typing import override
+
+from src.Banco.Transacao.Conta import Conta
+from src.Banco.Transacao.Transacao import Transacao
 
 
 class Transferencia(Transacao):
@@ -11,5 +12,3 @@ class Transferencia(Transacao):
     @override
     def _operation(self) -> bool:
         return self.conta_origem.transferir(self.valor, self.conta_destino)
-
-

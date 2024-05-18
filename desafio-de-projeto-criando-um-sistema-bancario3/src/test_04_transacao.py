@@ -61,7 +61,7 @@ def test_Deposit(conta_origem):
     #Objeto Conta
     log = conta1.log
 
-    assert log[1] == f"Deposito efetuado com conta:{conta1.numero} Deposito={deposito1.valor}."
+    assert log[1] == f"Deposito efetuado com conta:{conta1.numero} Deposito={deposito1.valor}"
 
     #Objeto Histórico
     assert deposito1.registro.entradas == [(datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -84,7 +84,7 @@ def test_Deposit_Invalid(conta_origem):
     # Objeto Conta
     log = conta1.log
 
-    assert log[1] == f"Valor deve ser maior ou igual a 5."
+    assert log[1] == f"Valor deve ser maior ou igual a 5"
 
     # Objeto Histórico
     last_entry = [deposito1.registro.entradas[-1]]
@@ -106,7 +106,7 @@ def test_Withdraw(conta_origem):
 
     log = conta1.log
 
-    assert log[1] == f"Saque efetuado conta:{conta1.numero} Saque=R$400."
+    assert log[1] == f"Saque efetuado conta:{conta1.numero} Saque=R$400"
     assert conta1.saldo == 0.25
 
     # Objeto Histórico
@@ -129,7 +129,7 @@ def test_Withdraw_Invalid_saldo_insuficiente(conta_origem):
 
     log = conta1.log
 
-    assert log[1] == f"Operação Não permitida:Saldo Insuficiente."
+    assert log[1] == f"Operação Não permitida:Saldo Insuficiente"
 
     # Objeto Histórico
     last_entry = [saque1.registro.entradas[-1]]
@@ -188,7 +188,7 @@ def test_Withdraw_Invalid_num_max_saques(conta_origem):
 
     log = conta2.log
 
-    assert log[1] == f"Operação Não permitida:Número máximo de saques atingido."
+    assert log[1] == f"Operação Não permitida:Número máximo de saques atingido"
 
 
 def test_Withdraw_Invalid_valor_menor(conta_origem):
@@ -208,7 +208,7 @@ def test_Withdraw_Invalid_valor_menor(conta_origem):
 
     log = conta2.log
 
-    assert log[1] == f"Operação Não permitida:Valor é inferior ao minimo permitido."
+    assert log[1] == f"Operação Não permitida:Valor é inferior ao minimo permitido"
 
 
 def test_Transference(conta_origem, conta_destino):
@@ -236,10 +236,10 @@ def test_Transference(conta_origem, conta_destino):
     log2 = conta_pessoa_fisica.log
 
     assert log1[1] == (f"Transferência para conta {conta_pessoa_fisica.numero}"
-                       f" titular {conta_pessoa_fisica.titular} valor:2000.")
+                       f" titular {conta_pessoa_fisica.titular} valor:2000")
 
     assert log2[1] == (f"Transferência da conta {conta_empresa.numero}"
-                       f" titular {conta_empresa.titular} valor:2000.")
+                       f" titular {conta_empresa.titular} valor:2000")
 
     assert conta_empresa.saldo == 99998000.0
     assert conta_pessoa_fisica.saldo == 2000.0
@@ -271,7 +271,7 @@ def test_Transference_Failed(conta_origem, conta_destino):
 
     log1 = conta_pessoa_fisica.log
 
-    assert log1[1] == f"Transferência falhou: Saldo insúficiente."
+    assert log1[1] == f"Transferência falhou: Saldo insúficiente"
 
 
 if __name__ == "__main__":

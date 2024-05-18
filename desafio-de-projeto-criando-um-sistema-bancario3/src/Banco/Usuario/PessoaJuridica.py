@@ -1,4 +1,4 @@
-from src.Banco.Usuario.Usuario import Usuario, Endereco
+from src.Banco.Usuario.Usuario import Endereco, Usuario
 
 
 class PessoaJuridica(Usuario):

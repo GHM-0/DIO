@@ -1,6 +1,7 @@
-from src.Banco.Transacao.Transacao import Transacao
-from src.Banco.Transacao.Conta import Conta
 from typing import override
+
+from src.Banco.Transacao.Conta import Conta
+from src.Banco.Transacao.Transacao import Transacao
 
 
 class Saque(Transacao):

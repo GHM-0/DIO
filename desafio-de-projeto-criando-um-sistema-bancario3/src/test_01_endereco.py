@@ -30,7 +30,7 @@ def test_endereco():
     assert endereco1.to_dict() == expected_dict
 
     print(endereco1)
-    expected_str = "Endereco: logradouro=Rua A, numero=123, bairro=Centro, cidade=São Paulo, estado=SP."
+    expected_str = "Endereco: logradouro=Rua A, numero=123, bairro=Centro, cidade=São Paulo, estado=SP"
     assert str(endereco1) == expected_str
 
 

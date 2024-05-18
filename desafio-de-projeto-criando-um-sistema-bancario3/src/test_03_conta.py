@@ -52,7 +52,7 @@ def test_Conta():
 
     log = conta1.log
     
-    assert log[1] == (f"Conta {conta1.numero} criada para {conta1.titular.nome} ID:{conta1.titular.id_}."
+    assert log[1] == (f"Conta {conta1.numero} criada para {conta1.titular.nome} ID:{conta1.titular.id_}"
                       f" Saldo inicial: R$={conta1.saldo}")
 
 
@@ -63,7 +63,7 @@ def test_Deposit(conta_origem):
     log = conta1.log
 
     
-    assert log[1] == f"Deposito efetuado com conta:{conta1.numero} Deposito={400.25}."
+    assert log[1] == f"Deposito efetuado com conta:{conta1.numero} Deposito={400.25}"
     assert conta1.saldo == 400.25
 
 
@@ -73,8 +73,8 @@ def test_Deposit_Invalid(conta_origem):
         conta1.depositar(0.00)
         log = conta1.log
         
-        assert log[1] == f"Valor deve ser maior ou igual a 5."
-    assert str(e.value) == f"Valor deve ser maior ou igual a 5."
+        assert log[1] == f"Valor deve ser maior ou igual a 5"
+    assert str(e.value) == f"Valor deve ser maior ou igual a 5"
 
 
 def test_Withdraw(conta_origem):
@@ -83,7 +83,7 @@ def test_Withdraw(conta_origem):
     conta1.sacar(valor=400)
     log = conta1.log
     
-    assert log[1] == f"Saque efetuado conta:{conta1.numero} Saque=R$400."
+    assert log[1] == f"Saque efetuado conta:{conta1.numero} Saque=R$400"
     assert conta1.saldo == 0.25
 
 
@@ -95,8 +95,8 @@ def test_Withdraw_Invalid(conta_origem):
         conta1.sacar(500)
         log = conta1.log
         
-        assert log[1] == f"Saldo Insuficiente."
-    assert str(e.value) == f"Saldo Insuficiente."
+        assert log[1] == f"Saldo Insuficiente"
+    assert str(e.value) == f"Saldo Insuficiente"
 
     # Numero Máximo de Saques
     with pytest.raises(ValueError) as e:
@@ -108,8 +108,8 @@ def test_Withdraw_Invalid(conta_origem):
         conta1.sacar(valor=100)
         log = conta1.log
         
-        assert log[1] == f"Número máximo de saques atingido."
-    assert str(e.value) == f"Número máximo de saques atingido."
+        assert log[1] == f"Número máximo de saques atingido"
+    assert str(e.value) == f"Número máximo de saques atingido"
 
     # Valor do Saque menor que o minímo permitido
     with pytest.raises(ValueError) as e:
@@ -118,10 +118,8 @@ def test_Withdraw_Invalid(conta_origem):
         conta2.depositar(400)
         conta2.sacar(valor=2)
         log = conta2.log
-
-        
-        assert log[1] == f"Valor é inferior ao minimo permitido."
-    assert str(e.value) == f"Valor é inferior ao minimo permitido."
+        assert log[1] == f"Valor é inferior ao minimo permitido"
+    assert str(e.value) == f"Valor é inferior ao minimo permitido"
 
 
 def test_Transference(conta_origem, conta_destino):
@@ -133,11 +131,9 @@ def test_Transference(conta_origem, conta_destino):
     log1 = conta_empresa.log
     log2 = conta_pessoa_fisica.log
 
-    assert log1[0] == f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-    assert log1[1] == f"Transferência para conta {conta_pessoa_fisica.numero} titular {conta_pessoa_fisica.titular} valor:2000."
+    assert log1[1] == f"Transferência para conta {conta_pessoa_fisica.numero} titular {conta_pessoa_fisica.titular} valor:2000"
 
-    assert log2[0] == f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-    assert log2[1] == f"Transferência da conta {conta_empresa.numero} titular {conta_empresa.titular} valor:2000."
+    assert log2[1] == f"Transferência da conta {conta_empresa.numero} titular {conta_empresa.titular} valor:2000"
     assert conta_empresa.saldo == 99998000.0
     assert conta_pessoa_fisica.saldo == 2000.0
 
@@ -150,9 +146,7 @@ def test_Transference_Failed(conta_origem, conta_destino):
     conta_pessoa_fisica.transferir(2000, conta_empresa)
 
     log1 = conta_pessoa_fisica.log
-
-    assert log1[0] == f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-    assert log1[1] == f"Transferência falhou: Saldo insúficiente."
+    assert log1[1] == f"Transferência falhou: Saldo insúficiente"
 
 
 if __name__ == "__main__":

@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import List, Tuple
 
+
 class Historico:
     def __init__(self):
         self._registro: List[Tuple[str, str, str, str, float, bool]] = []

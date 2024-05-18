@@ -1,22 +1,26 @@
-from src.Banco.Usuario.Endereco import Endereco
 from abc import ABC
+
+from src.Banco.Usuario.Endereco import Endereco
 
 
 class Usuario(ABC):
     """
     Representa um Usuário Genérico
     """
-
+    """
+    Class Attribute:
+    _ids (set) : Representa Um set de ids de Usuários
+    """
     _ids = set()
 
     def __init__(self, nome: str, id_: str, endereco: Endereco):
         """
-        Inicializa uma Instância de Usuário.
+        Inicializa uma Instância de Usuário
 
         Args:
-            nome (str): Nome do Usuário.
-            id_ (str): Número do id.
-            endereco (Endereco): Endereço.
+            nome (str): Nome do Usuário
+            id_ (str): Número do id
+            endereco (Endereco): Endereço
         """
         self.nome = nome
         self.id_ = self._checar_id(self._formatar_id(id_))
@@ -25,32 +29,32 @@ class Usuario(ABC):
     @staticmethod
     def _formatar_id(id_: str):
         """
-        Formata um ID removendo pontos e traços.
+        Formata um ID removendo pontos e traços
 
         Args:
-            id_ (str): ID formatado.
+            id_ (str): ID formatado
 
         Returns:
-            str: ID formatado.
+            str: ID formatado
         """
         return id_.translate(str.maketrans("", "", ".-"))
 
     @classmethod
     def _checar_id(cls, id_: str) -> str:
         """
-        Checa se o ID já existe. Se não, adiciona-o ao set _ids.
+        Checa se o ID já existe. Se não, adiciona-o ao set _ids
 
         Args:
-            id_ (str): O ID a s er checado e adicionado.
+            id_ (str): O ID a s er checado e adicionado
 
         Returns:
-            str: O ID validado.
+            str: O ID validado
 
         Raises:
-            ValueError: Se o ID já existe.
+            ValueError: Se o ID já existe
         """
         if id_ in cls._ids:
-            raise ValueError("ID já existe.")
+            raise ValueError("ID já existe")
         cls._ids.add(id_)
         return id_
 

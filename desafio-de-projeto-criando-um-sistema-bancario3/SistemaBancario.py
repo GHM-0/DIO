@@ -1,6 +1,6 @@
-from src.Banco.conta import Conta
-from src.Banco.endereco import Endereco
-from src.Banco.usuario import Usuario
+from src.Banco.Transacao.Conta import Conta
+from src.Banco.Usuario.Endereco import Endereco
+from src.Banco.Usuario.Usuario import Usuario
 
 
 def main():
