@@ -42,14 +42,14 @@ class Conta:
         self.numero = "{:04d}".format(self._get_numero_sequencial(numero))
         self.agencia = "{:04d}".format(agencia)
         self.titular = titular
-        self.saldo = saldo
+        self._saldo = saldo
         self._log = [
             f"Conta {self.numero} criada para {self.titular.nome} CPF:{self.titular.cpf}."
-            f"Saldo inicial: R$={self.saldo}"
+            f"Saldo inicial: R$={self._saldo}"
         ]
 
     @classmethod
-    def _get_numero_sequencial(cls, numero):
+    def _get_numero_sequencial(cls, numero) -> int:
         """
         Gera um número sequencial para a conta se nenhum número for fornecido.
 
@@ -82,8 +82,8 @@ class Conta:
                 if valor > self.max_saque:
                     raise ValueError("Valor Máximo de Saque excedido")
                 else:
-                    if self.saldo >= valor:
-                        self.saldo -= valor
+                    if self._saldo >= valor:
+                        self._saldo -= valor
                         self.__append_log(f"Saque efetuado conta:{self.numero} Saque=R${valor}")
                         self.num_saques_dia -= 1
                     else:
@@ -105,7 +105,7 @@ class Conta:
         """
         try:
             if valor > 0 and valor >= self.MIN_DEPOSITO:
-                self.saldo += valor
+                self._saldo += valor
                 self.__append_log(f"Deposito efetuado com conta:{self.numero} Deposito={valor}")
         except ValueError:
             self.__append_log(f"Valor deve ser positivo e maior ou igual a {self.MIN_DEPOSITO}")
@@ -118,7 +118,6 @@ class Conta:
             log (str): adiciona mensagem ao LOG.
     """
 
-    @property
     def log(self):
         """
         Registra as transações da conta.
@@ -133,7 +132,7 @@ class Conta:
     """
 
     def visualizar_extrato(self):
-        return f"{self._log}\nSaldo Atual={self.saldo}"
+        return f"{self._log}\nSaldo Atual={self._saldo}"
 
     """
         transferir(other,value)
@@ -152,8 +151,8 @@ class Conta:
             bool: "Verdadeiro" se a transferência for bem-sucedida, "Falso" caso contrário.
         """
         try:
-            self.max_saque = max(self.saldo, self.max_saque)
-            if self.saldo >= valor > 0:
+            self.max_saque = max(self._saldo, self.max_saque)
+            if self._saldo >= valor > 0:
                 self.sacar(valor=valor)
                 self.__append_log(f"Transferência para conta {other.numero} titular {other.titular} valor:{valor}")
                 other.depositar(valor)
@@ -175,4 +174,4 @@ class Conta:
         self._log.append(mensagem)
 
     def __str__(self):
-        return f"Titular={self.titular.nome}, Número={self.numero} e Agência {self.agencia}"
+        return f"{self.__class__.__name__}: {''.join([f'{attr}={value}' for attr, value in self.__dict__.items()])}"

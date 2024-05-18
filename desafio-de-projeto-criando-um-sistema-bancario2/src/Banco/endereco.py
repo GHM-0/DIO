@@ -56,4 +56,4 @@ class Endereco:
 
     def __str__(self) -> str:
         """Retorna uma representação do endereço como uma string."""
-        return f"{self.logradouro}, {self.numero}, {self.bairro}, {self.cidade}/{self.estado}"
+        return f"{self.__class__.__name__}: {''.join([f'{attr}={value}' for attr, value in self.__dict__.items()])}"

@@ -1,8 +1,7 @@
 from abc import ABC
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from src.Banco.Usuario.Usuario import Usuario
-from src.Banco.Transacao.Historico import Historico
 
 
 class Conta(ABC):
@@ -21,9 +20,13 @@ class Conta(ABC):
 
     """
     Attributes:
-        _num_saques_dia (int): Número máximo de saques diários
+        _NUM_SAQUES_DIA (int): Número máximo de saques diários
+        _NUM_TRANSACOES_DIA (int): Número de máximo de Transações diárias
+        _BLOQUEIO_OPERACOES (datatime) : Hora do bloqueio de transações
     """
     _NUM_SAQUES_DIA = 3
+    _NUM_TRANSACOES_DIA = 10
+    _BLOQUEIO_OPERACOES = None
 
     """
     Class Attributes:
@@ -95,6 +98,7 @@ class Conta(ABC):
             ValueError: Se a quantia for insuficiente para realização do saque.
         """
         try:
+            self._bloquear()
             if self._NUM_SAQUES_DIA > 0:  #Número de Saques Restantes
 
                 if valor > self._MAX_SAQUE:  #Valor Máximo do Saque
@@ -131,6 +135,7 @@ class Conta(ABC):
             ValueError: Se a quantia for insuficiente para realização do depósito.
         """
         try:
+            self._bloquear()
             if float(valor) > 0 and float(valor) >= self._MIN_DEPOSITO:
                 self._saldo += valor
                 self.__append_log(
@@ -173,6 +178,7 @@ class Conta(ABC):
             bool: "True" se a transferência for bem-sucedida, "False" caso contrário.
         """
         try:
+            self._bloquear()
             self._MAX_SAQUE = max(self._saldo, self._MAX_SAQUE)
             if self._saldo >= valor > 0:
                 self.sacar(valor=valor)
@@ -206,9 +212,40 @@ class Conta(ABC):
         """
         self._NUM_SAQUES_DIA = 3
 
-    def max_saque(self, valor:int):
+    def max_saque(self, valor: int):
         if valor > 0:
             self._MAX_SAQUE = valor
+
+    def _bloquear(self) -> bool:
+        result = False
+        try:
+
+            # Se hover Bloqueio
+            if self._BLOQUEIO_OPERACOES is not None:
+                # Se a datetime atual > que o limit do bloqueio
+                if self._BLOQUEIO_OPERACOES + timedelta(days=1) <= datetime.now():
+                    self._BLOQUEIO_OPERACOES = None
+                    self.reset_saques()  #self._NUM_SAQUES_DIA = 3
+                    self._NUM_TRANSACOES_DIA = 10
+
+                    self.__append_log(f"Operações Desbloqueadas at"
+                                      f" {datetime.now()}.")
+                    result = False
+                result = True
+            # Se não houver bloqueio
+            else:
+                if self._NUM_TRANSACOES_DIA <= 0:
+                    self._BLOQUEIO_OPERACOES = datetime.now()
+                    raise ValueError(f"Operações Bloqueadas em {self._BLOQUEIO_OPERACOES}.")
+                else:
+                    self._NUM_TRANSACOES_DIA -= 1
+                    self.__append_log(f"Operações Restantes {self._NUM_TRANSACOES_DIA}.")
+                    return False
+
+        except ValueError as e:
+            raise e
+
+        return True
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}: {', '.join([f'{attr}={value}' for attr, value in self.__dict__.items()])}."

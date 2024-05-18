@@ -1,5 +1,6 @@
 from src.Banco.endereco import Endereco
 
+
 class Usuario:
     """
     Representa um usuário
@@ -7,7 +8,7 @@ class Usuario:
 
     _cpfs = set()
 
-    def __init__(self, nome:str, cpf:str, endereco: Endereco):
+    def __init__(self, nome: str, cpf: str, endereco: Endereco):
         """
         Inicializa uma Instância de Usuário.
 
@@ -53,4 +54,4 @@ class Usuario:
         return cpf
 
     def __str__(self):
-        return f"Nome={self.nome} CPF={self.cpf}"
+        return f"{self.__class__.__name__}: {''.join([f'{attr}={value}' for attr, value in self.__dict__.items()])}"

@@ -60,7 +60,7 @@ def test_Deposit(conta_origem):
                               f" Resultado={deposito1.result})")
     #Objeto Conta
     log = conta1.log
-    
+
     assert log[1] == f"Deposito efetuado com conta:{conta1.numero} Deposito={deposito1.valor}."
 
     #Objeto Histórico
@@ -83,7 +83,7 @@ def test_Deposit_Invalid(conta_origem):
 
     # Objeto Conta
     log = conta1.log
-    
+
     assert log[1] == f"Valor deve ser maior ou igual a 5."
 
     # Objeto Histórico
@@ -105,7 +105,7 @@ def test_Withdraw(conta_origem):
     saque1 = Saque(400, conta1)
 
     log = conta1.log
-    
+
     assert log[1] == f"Saque efetuado conta:{conta1.numero} Saque=R$400."
     assert conta1.saldo == 0.25
 
@@ -128,7 +128,7 @@ def test_Withdraw_Invalid_saldo_insuficiente(conta_origem):
     saque1 = Saque(500, conta1)
 
     log = conta1.log
-    
+
     assert log[1] == f"Operação Não permitida:Saldo Insuficiente."
 
     # Objeto Histórico
@@ -187,7 +187,7 @@ def test_Withdraw_Invalid_num_max_saques(conta_origem):
                            100, False)]
 
     log = conta2.log
-    
+
     assert log[1] == f"Operação Não permitida:Número máximo de saques atingido."
 
 
@@ -208,7 +208,6 @@ def test_Withdraw_Invalid_valor_menor(conta_origem):
 
     log = conta2.log
 
-    
     assert log[1] == f"Operação Não permitida:Valor é inferior ao minimo permitido."
 
 
@@ -256,21 +255,19 @@ def test_Transference_Failed(conta_origem, conta_destino):
     conta_pessoa_fisica = conta_origem
     assert conta_pessoa_fisica.saldo == 0.00
 
-
     deposito2 = Deposito(400, conta_pessoa_fisica)
     conta_pessoa_fisica.max_saque(5000)
 
     assert conta_pessoa_fisica.saldo == 400
 
-
     transferencia1 = Transferencia(2000, conta_pessoa_fisica, conta_empresa)
 
     last_entry = [transferencia1.registro.entradas[-1]]
     assert last_entry == [(datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                          conta_pessoa_fisica.numero,
-                          conta_empresa.numero,
-                          transferencia1.__class__.__name__,
-                          2000, False)]
+                           conta_pessoa_fisica.numero,
+                           conta_empresa.numero,
+                           transferencia1.__class__.__name__,
+                           2000, False)]
 
     log1 = conta_pessoa_fisica.log
 
