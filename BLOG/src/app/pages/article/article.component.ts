@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import {dataMock} from '../../../data/dataMock';
@@ -8,7 +8,7 @@ import {dataMock} from '../../../data/dataMock';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
-export class ArticleComponent {
+export class ArticleComponent implements OnInit{
 
 
 @Input() date:string="0000-00-01";
@@ -58,6 +58,8 @@ constructor(private nav:Router, private  route:ActivatedRoute){
 ngOnInit(){
 	this.route.paramMap.subscribe(value => this.id=value.get("id"));
 	this.setValuesToArticle(this.id);
+
+	window.scrollTo(0, 0);
 
 	//Redirecinoa para home apois 5 segundos
 /* 	setInterval(()=>{

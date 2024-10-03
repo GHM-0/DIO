@@ -10,7 +10,7 @@ import java.sql.SQLException;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ConnectionUtil {
 
-    public final static String url ="jdbc:mysql://localhost:3306";
+    public final static String url ="jdbc:mysql://localhost:3306/jdbc_test";
     public final static String user ="root";
     public final static String pwd="$NEVER_BLANK";
 
