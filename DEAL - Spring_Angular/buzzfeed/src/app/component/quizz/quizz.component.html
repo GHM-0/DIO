@@ -1,0 +1,29 @@
+<div class="container">
+<div class="logo flex-center">
+    <img src="assets/imgs/logo.png" alt="BuzzFeed Logo" srcset="">
+    <h3>{{title}}</h3>
+</div>
+<!-- div class="main"-->
+@if (!finished ) {
+<div class="questions flex-center">
+    <h5 class="counter">Questão {{questionIndex+1}} de {{questionMaxIndex}}</h5>
+    <h3>{{questionSelected.question}}</h3>
+</div>
+<div class="options">
+@for (option of questionSelected.options;track option) {
+    <button class="btn-option" (click)="playerChoose(option.alias)">
+        {{option.name}}
+    </button>
+}
+</div>
+}
+
+@if (finished ) {
+<div class="results">
+    <h1>O seu resultado é:</h1>
+    <p>{{result}}</p>
+</div>
+}
+
+<!-- /div -->    
+</div>
