@@ -1,18 +1,29 @@
 <main>
-	<article class="article">
-		<p class="date">{{date}}</p> <!--TODOS OS ARTIGOS POSTADOS NO DIA?-->
+	<article>
+		<p class="date">{{date}}</p> <!--TODOS OS ARTIGOS POSTADOS NO DIA?-->		
+	
+	
+		<div class="article">
 		<a href="#ArticleID">
-			<img class="imag"
-			src="{{photoCover}}"
-			srcset=""
-			alt="ARTICLE-IMAGE"
-			height="400px"
-			width="500px">
-			<p class="photoInfo">{{photoInfo}}</p>
-				<h1 class="title">{{title}}</h1> by <a href="#AuthorID"><p class="author">{{author}}</p></a>
-				<p class="description">{{description}}<br></p>
+			
+		<div class="imag">
+				<img 
+					src="{{photoCover}}"
+					srcset=""
+					alt="ARTICLE-IMAGE"
+					height="400px"
+					width="500px">
+			
+			<p class="photoInfo">{{photoInfo|lowercase}}</p>
+		</div>
+
+			<div class="main-content">
+				<h1 class="title">{{title|titlecase}}</h1><p class="author"> by <a href="#AuthorID">{{author}} </a></p>
+				<p class="description">{{description|titlecase}}<br></p>
 				<p class="content">{{content}}</p>
+			</div>
 		</a>
+		</div>
 	</article>
 </main>
 <footer></footer>

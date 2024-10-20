@@ -11,6 +11,7 @@ import { SmallCardComponent } from './components/small-card/small-card.component
 import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { ArticleComponent } from './pages/article/article.component';
+import { TransformadorPipe } from './pipes/transformador.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ArticleComponent } from './pages/article/article.component';
     SmallCardComponent,
     HomeComponent,
     CardComponent,
-    ArticleComponent
+    ArticleComponent,
+    TransformadorPipe
   ],
   imports: [
     BrowserModule,
