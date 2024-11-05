@@ -34,7 +34,7 @@ CREATE TABLE Contatos(
     FOREIGN KEY (idPerfil) REFERENCES Perfis(id)
 );
 
-CREATE TABLE Pagamentos(
+CREATE TABLE FormasPagamentos(
     id INT AUTO_INCREMENT PRIMARY KEY,
     metodo ENUM('PIX','TRANSFER','PAYPAL') NOT NULL,
     detalhes VARCHAR(300) NOT NULL,
@@ -45,11 +45,11 @@ CREATE TABLE Pagamentos(
 
 CREATE TABLE Pedidos(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    estatus ENUM('Aguardando', 'Concluido', 'Cancelado') NOT NULL,
+    _status ENUM('Aguardando', 'Concluido', 'Cancelado') NOT NULL,
     -- idPerfil INT NOT NULL,
     -- FOREIGN KEY (idPerfil) REFERENCES Perfis(id),
     idPagamento INT NOT NULL,
-    FOREIGN KEY (idPagamento) REFERENCES Pagamentos(id),
+    FOREIGN KEY (idPagamento) REFERENCES FormasPagamentos(id),
     valor DECIMAL(7, 2) NOT NULL CHECK (valor >= 0),
     criado DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -65,7 +65,7 @@ CREATE TABLE Produtos(
     criado DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Cotacoes(
+CREATE TABLE ProdutosPrecos(
     id INT AUTO_INCREMENT PRIMARY KEY,
     uni_preco DECIMAL(7, 2) NOT NULL CHECK (uni_preco >= 0),
     ativo TINYINT DEFAULT TRUE,
@@ -79,18 +79,18 @@ CREATE TABLE Cotacoes(
 CREATE TABLE Estoque(
     id INT AUTO_INCREMENT PRIMARY KEY,
     quantidade INT NOT NULL CHECK (quantidade >= 0),
-    idCotacao INT NOT NULL,
-    FOREIGN KEY (idCotacao) REFERENCES Cotacoes(id),
-    idProduto INT NOT NULL,
-    FOREIGN KEY (idProduto) REFERENCES Produtos(id),
-    idPerfil INT NOT NULL,
-    FOREIGN KEY (idPerfil) REFERENCES Perfis(id),
+    idProdutoPreco INT NOT NULL,
+    FOREIGN KEY (idProdutoPreco) REFERENCES ProdutosPrecos(id),
+--    idProduto INT NOT NULL,
+--    FOREIGN KEY (idProduto) REFERENCES Produtos(id),
+--    idPerfil INT NOT NULL,
+--    FOREIGN KEY (idPerfil) REFERENCES Perfis(id),
     criado DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Entregas(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    estatus ENUM('Planejado', 'Enviado', 'Cancelado') NOT NULL,
+    _status ENUM('Planejado', 'Enviado', 'Cancelado') NOT NULL,
     codRastreio VARCHAR(250) NOT NULL,
     enviado DATETIME,
     idPedido INT NOT NULL,
@@ -104,12 +104,12 @@ CREATE TABLE PedidoItens(
     id INT AUTO_INCREMENT PRIMARY KEY,
     idPedido INT NOT NULL,
     FOREIGN KEY (idPedido) REFERENCES Pedidos(id),
-    idProduto INT NOT NULL,
-    FOREIGN KEY (idProduto) REFERENCES Produtos(id),
-    idCotacao INT NOT NULL,
-    FOREIGN KEY (idCotacao) REFERENCES Cotacoes(id),
-    idPerfil INT NOT NULL,
-    FOREIGN KEY (idPerfil) REFERENCES Perfis(id),
+--    idProduto INT NOT NULL,
+--    FOREIGN KEY (idProduto) REFERENCES Produtos(id),
+    idProdutoPreco INT NOT NULL,
+    FOREIGN KEY (idProdutoPreco) REFERENCES ProdutosPrecos(id),
+--    idPerfil INT NOT NULL,
+--    FOREIGN KEY (idPerfil) REFERENCES Perfis(id),
     quantidade INT NOT NULL CHECK (quantidade >= 0)
 );
 
