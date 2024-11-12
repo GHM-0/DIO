@@ -6,8 +6,22 @@ CREATE TABLE Clientes(
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(250) NOT NULL,
     identificador VARCHAR(29) NOT NULL UNIQUE,
-    endereco VARCHAR(280) NOT NULL,
     criado DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Enderecos(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    CEP VARCHAR(250) NOT NULL,
+    estado ENUM('RJ','ES','SP') NOT NULL,
+    tipo ENUM('Residencial','Comercial') NOT NULL,
+    cidade VARCHAR(250) NOT NULL,
+    bairro VARCHAR(250) NOT NULL,
+    rua VARCHAR(250) NOT NULL,
+    numero INT NOT NULL,
+    complemento VARCHAR(250) NOT NULL,
+    ativo TINYINT DEFAULT TRUE,
+    idCliente INT NOT NULL,
+    FOREIGN KEY (idCliente) REFERENCES Clientes(id)
 );
 
 CREATE TABLE Veiculos(
