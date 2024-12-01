@@ -1,0 +1,40 @@
+
+idCliente 2
+
+-- idVendedor 16,22,17
+(2,1,'X0001',clienteEndereco,remetenteEndereco,2),
+(2,1,'Y0001',clienteEndereco,remetenteEndereco,2),
+(2,1,'Z0001',clienteEndereco,remetenteEndereco,2),
+
+
+-- idVendedor 29,17
+(2,2,'X0002',clienteEndereco,remetenteEndereco,3),
+(2,2,'Y0002',clienteEndereco,remetenteEndereco,3),
+
+idCliente 5
+
+--idVendedor 16,22,17
+(5,1,codRastreio,clienteEndereco,remetenteEndereco,3),
+(5,1,codRastreio,clienteEndereco,remetenteEndereco,3),
+(5,1,codRastreio,clienteEndereco,remetenteEndereco,3),
+
+
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade),
+(idPedido,idItem,codRastreio,clienteEndereco,remetenteEndereco,quantidade);

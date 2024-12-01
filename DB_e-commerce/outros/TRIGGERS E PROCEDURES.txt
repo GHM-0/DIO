@@ -1,0 +1,12 @@
+Produtos _status
+
+Estoque quantidade e idProdutoPreco
+
+Havera um trigger quando a quantidade em estoque = 0 Produto tera seu _status=false
+
+no entanto o estoque usa idProdutoPreco, deve se verificar para esse trigger o idProduto/qualquer idPerfil com _status=True
+
+ProdutosPrecos relaciona idPerfil/idProduto _status
+
+Havera um trigger no insert ProdutoPreco, para a relação   idPerfil/idProduto só pode haver uma entrada com _status = True, ou seja, na inserção se a relação não for unica deve verificar se existem _status=True e trona-los False
+

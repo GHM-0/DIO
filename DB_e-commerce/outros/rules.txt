@@ -1,0 +1,40 @@
+
+Perfis(Cliente|Vendedor)
+    - PessoaFisica - PessoJuridica
+        Enderecos
+        Contatos
+        FormasPagamentos
+
+Produtos               <- Aponta a existencia ou não
+Estoque                <- Qunatifica e relaciona Produto/Vendedor
+    ProdutosPrecos     <- mantem o preço atual/historico para uma relação produto/Vendedor
+
+Pedidos
+    PedidoItens
+
+Pagamentos
+
+Entregas
+    EntregaItens
+----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

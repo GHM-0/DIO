@@ -1,6 +1,6 @@
 
-# Projeto Básico de Banco de Dados Usando Mysql   
-![Digital Innovation One](DIO_logo.png) 
+# Projeto Básico de Banco de Dados Usando MySQL
+![Digital Innovation One](DIO_logo.svg) 
 
 ## #Objetivos e Limitações
 
@@ -86,11 +86,53 @@ Aplicar o mapeamento para o  cenário:
     Embora a granularidade do modelo possa ser inadequada para fins práticos, optei em utilizar um modelo com granularidade elevada, os nomes das tabelas podem não ser adequadas, bem como estarem com colunas faltantes e atriutos deslocado. Não houveram Casos de uso detalhados para embasar este modelo.
   </em>
 </p>
-  
 </div>
 </br>
 Ps.:CHAT GP/Gemimi foram usados exclusívamente para gerar massa de dados, e prover uma visão crítica da DataBase,
 fazer algumas verificações lógicas em algumas queries, não sendo estes autores de quaisquer queries ou tabelas neste projeto, suas adições estão cinalizadas como "GTP hints".
 
 </br>
+
+
+Diagrama ERR:</br>
+<img src="./imgs/visao_comp.png" width=100%>
+
+
+Generalização de Cliente:</br>
+<img src="./imgs/heranca.svg" width=50%>
+
+Entidades Auxiliares de Cliente:</br>
+<img src="./imgs/Emtidades_aux.svg">
+
+Entidades Associativas de Pedido:</br>
+<img src="./imgs/EntidadesAssociativasDePedido.svg">
+
+Entidades Associativas de Produto:</br>
+<img src="./imgs/EntidadeAssociativa_Produto_Vendedor.drawio.svg">
+
+
+Metadata:</br>
+<img src="./imgs/Metadata.svg">
+
+
+
+
+- Notas sobre a Implementação:
+
+<div style="display: flex; align-items: center; padding: 10px; background-color:  #42DF; border-radius: 10px; position: relative; max-width: 80%; margin:12px; justify-content: space-between;">
+
+<img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
+
+<p style="flex-grow: 1; margin: 0;"><em>
+  Algumas tabelas de Junção como entre PedidoItens e Entregas: EntregasItens - foram preteridas em função da execiva granularidade e eveitar Over Design.
+  </em>
+</p>
+</div>
+</br>
+
+
+
+
+
+Implemantção em MySQL:
 ![Modelo Implemtado em MySQL](ecommerce_sql.png) 

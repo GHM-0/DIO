@@ -1,0 +1,17 @@
+
+
+USE ecommerce;
+
+SELECT
+    *
+FROM Perfis
+LEFT JOIN PessoaFisica ON Perfis.id = PessoaFisica.idPerfil
+LEFT JOIN PessoaJuridica ON Perfis.id = PessoaJuridica.idPerfil;
+
+
+CREATE VIEW ViewPerfis AS
+SELECT
+    id,_status, nome, identificador, sexo, dataNascimento,estado,inscricaoEstadual,razaoSocial,criacao
+FROM Perfis
+LEFT JOIN PessoaFisica ON Perfis.id = PessoaFisica.idPerfil
+LEFT JOIN PessoaJuridica ON Perfis.id = PessoaJuridica.idPerfil;

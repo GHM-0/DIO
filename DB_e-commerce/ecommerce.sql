@@ -17,7 +17,7 @@ CREATE TABLE Clientes(
     id INT AUTO_INCREMENT PRIMARY KEY,
     _status TINYINT DEFAULT TRUE,                         -- Ativo ou Inativo
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,           -- Data de criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP          -- Data da ultima alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP          -- Data da ultima alteração
 );
 
 -- GPT hints
@@ -75,7 +75,7 @@ CREATE TABLE Enderecos(
     FOREIGN KEY (idCliente) REFERENCES Clientes(id),
     _status TINYINT DEFAULT TRUE,                          -- Ativo ou Inativo
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,            -- Data de criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP           -- Data da ultima Alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP           -- Data da ultima Alteração
 );
 
 -- GPT hints
@@ -96,7 +96,7 @@ CREATE TABLE Contatos(
     idCliente INT NOT NULL,                                
     FOREIGN KEY (idCliente) REFERENCES Clientes(id),
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,            -- Data de criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP           -- Data da ultima Alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP           -- Data da ultima Alteração
 );
 
 -- GPT hints
@@ -117,7 +117,7 @@ CREATE TABLE FormasPagamento(
     FOREIGN KEY (idCliente) REFERENCES Clientes(id),
     _status TINYINT DEFAULT TRUE,                        -- Ativo ou Inativo
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,          -- Data de Criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP         -- Data da ultima Alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP         -- Data da ultima Alteração
 );
 -- GPT hints
 -- TRIGGER: Atualizar `Alteração` para a data atual quando a forma de pagamento for alterada (AFTER UPDATE).
@@ -131,7 +131,7 @@ CREATE TABLE Categorias(
     id INT AUTO_INCREMENT PRIMARY KEY,
     _status TINYINT DEFAULT TRUE,                        -- Ativo ou Inativo
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,          -- Data de Criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP         -- Data da ultima Alteração 
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP         -- Data da ultima Alteração
 );
 
 -- GPT hints
@@ -150,7 +150,7 @@ CREATE TABLE Produtos(
     FOREIGN KEY (categoria) REFERENCES Categorias(id),
     _status TINYINT DEFAULT TRUE,                                                    -- Existe nos Estoques?
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,                                      -- Data de Criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP                                     -- Data da ultima Alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP                                     -- Data da ultima Alteração
 );
 
 -- GPT hints
@@ -169,7 +169,7 @@ CREATE TABLE Estoque(
     FOREIGN KEY (idProduto) REFERENCES Produtos(id),
     _status TINYINT DEFAULT TRUE,                          -- Ativo ou Inativo
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,            -- Data de Criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP           -- Data da ultima Alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP           -- Data da ultima Alteração
 );
 
 -- GPT hints
@@ -189,7 +189,7 @@ CREATE TABLE Pedidos(
     idFormaPagamento INT NOT NULL,                                                  -- Referência à forma de pagamento
     FOREIGN KEY (idFormaPagamento) REFERENCES FormasPagamento(id),
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,                                     -- Data de Criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP                                    -- Data da ultima Alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP                                    -- Data da ultima Alteração
 );
 
 -- GPT hints
@@ -226,7 +226,7 @@ CREATE TABLE Pagamentos(
     idPedido INT NOT NULL,
     FOREIGN KEY (idPedido) REFERENCES Pedidos(id),
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,                   -- Data de Criação
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP                  -- Data da ultima Alteração 
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP                  -- Data da ultima Alteração 
 );
 
 CREATE TABLE PedidoItens(
@@ -253,7 +253,7 @@ CREATE TABLE Entregas(
     codRastreio VARCHAR(250) NOT NULL,
     enviado DATETIME,
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Alteração DATETIME DEFAULT CURRENT_TIMESTAMP,                   -- Data da ultima Alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP,                   -- Data da ultima Alteração
     quantidade INT NOT NULL CHECK (quantidade >= 0),
 
 -- Metadata

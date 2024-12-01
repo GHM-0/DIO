@@ -1,0 +1,105 @@
+Sobre o ponto "1. Sobre Estoque e ProdutosPreco"
+
+
+A tabela ProdutosPreco mantem a cotação atual/e historica de um determinado Produto fronecido por um vendedor(Perfil)
+
+Varios vendedores podem fornecer o mesmo Produto, os vededores podem oferecer varios ProdutosPreco
+
+O estoque contabiliza o total de produtos a disposição para compra
+
+Sobre o pobto "2. Produtos sem vendedores definidos"
+
+Qualquer vendedor pode ofertar qualquer produto - não há exclusividade
+
+-- Estou pensando
+Quanto ao ponto "3. Inconsistências em PedidoItens e EntregaItens"
+
+Só se pode ofertar o que está em Estoque, O preço esta atrelado a produto/vendedor(perfil)
+
+
+Sim, há alguns pontos que podem estar desconexos ou necessitando ajustes para garantir coerência e funcionalidade no modelo. Vamos analisá-los:
+
+1. Sobre Estoque e ProdutosPrecos:
+Você referenciou idProdutoPreco na tabela Estoque, o que indica que o estoque é gerenciado por combinação de produto e preço. Entretanto:
+
+Problema: O preço de um produto geralmente não está diretamente associado ao controle de estoque. Se o preço for alterado, o estoque pode acabar sendo desatualizado ou incorreto.
+Sugestão: Armazene o estoque por produto diretamente, e se necessário mantenha histórico de preços apenas para fins de consulta e transações.
+sql
+Copiar código
+CREATE TABLE Estoque(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    quantidade INT NOT NULL CHECK (quantidade >= 0),
+    idProduto INT NOT NULL,
+    FOREIGN KEY (idProduto) REFERENCES Produtos(id),
+    criacao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+2. Produtos sem vendedores definidos:
+Na tabela Produtos, não há uma relação explícita com os perfis de vendedores (mesmo que ProdutosPrecos esteja associada). Isso pode dificultar o rastreamento de quem está oferecendo determinado produto.
+
+Sugestão: Adicione uma relação direta entre Produtos e Perfis, especialmente se os vendedores cadastrarem seus próprios produtos.
+sql
+Copiar código
+ALTER TABLE Produtos ADD COLUMN idPerfil INT NOT NULL;
+ALTER TABLE Produtos ADD FOREIGN KEY (idPerfil) REFERENCES Perfis(id);
+3. Inconsistências em PedidoItens e EntregaItens:
+PedidoItens parece depender diretamente de ProdutosPrecos e não de Estoque. Isso pode ser problemático, já que um preço pode mudar ou um produto sair do estoque antes da entrega.
+EntregaItens referencia PedidoItens, mas falta uma relação com Estoque.
+Sugestões:
+
+Relacione PedidoItens diretamente com o produto e sua quantidade, e registre o preço como histórico no próprio pedido.
+Garanta que EntregaItens também considere o estoque para rastreamento.
+sql
+Copiar código
+
+
+CREATE TABLE PedidoItens(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL,
+    FOREIGN KEY (idPedido) REFERENCES Pedidos(id),
+    idProduto INT NOT NULL,
+    FOREIGN KEY (idProduto) REFERENCES Produtos(id),
+    quantidade INT NOT NULL CHECK (quantidade > 0),
+    preco_unitario DECIMAL(7, 2) NOT NULL CHECK (preco_unitario >= 0) -- Preço no momento do pedido
+);
+
+CREATE TABLE EntregaItens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idEntrega INT NOT NULL,
+    FOREIGN KEY (idEntrega) REFERENCES Entregas(id),
+    idProduto INT NOT NULL,
+    FOREIGN KEY (idProduto) REFERENCES Produtos(id),
+    quantidade INT NOT NULL CHECK (quantidade > 0)
+);
+
+------------------------------------------------------------
+
+4. ProdutosPrecos pode conflitar com histórico:
+Se cada novo preço cria um registro, você pode acabar com dados redundantes caso um preço seja reativado. Considere um mecanismo de atualização em vez de desativação e criação de novo registro.
+
+Sugestão: Adicione uma tabela de histórico para preservar preços antigos e manter ProdutosPrecos sempre atualizada.
+
+-> Não ProdutosPrecos tem _status só deve haver um ativo por idProduto/idPerfil
+
+------------------------------------------------------------
+5. Pagamentos com referências múltiplas:
+Pagamentos depende de Pedidos e FormasPagamentos, mas falta um vínculo com Perfis (quem está pagando) para rastreamento direto.
+
+Sugestão: Inclua uma referência ao perfil pagador.
+
+
+---> feed back
+
+Se o objetivo de Estoque é refletir a quantidade global de um produto (independentemente de quem está vendendo ou do preço), a relação com ProdutosPrecos pode não ser ideal.
+
+Não Estoque é inerente a vendedor/produto
+
+
+
+
+
+
+
+
+
+
+
