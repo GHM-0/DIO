@@ -1,5 +1,5 @@
 
-# Projeto Básico de Banco de Dados Usando MySQL
+# Projeto Básico de Banco de Dados Usando MySQL</br>
 ![Digital Innovation One](DIO_logo.svg) 
 
 ## #Objetivos e Limitações
@@ -93,10 +93,8 @@ fazer algumas verificações lógicas em algumas queries, não sendo estes autor
 
 </br>
 
-
 Diagrama ERR:</br>
 <img src="./imgs/visao_comp.png" width=100%>
-
 
 Generalização de Cliente:</br>
 <img src="./imgs/heranca.svg" width=50%>
@@ -110,12 +108,8 @@ Entidades Associativas de Pedido:</br>
 Entidades Associativas de Produto:</br>
 <img src="./imgs/EntidadeAssociativa_Produto_Vendedor.drawio.svg">
 
-
 Metadata:</br>
 <img src="./imgs/Metadata.svg">
-
-
-
 
 - Notas sobre a Implementação:
 
@@ -130,9 +124,5 @@ Metadata:</br>
 </div>
 </br>
 
-
-
-
-
-Implemantção em MySQL:
+Implemantção em MySQL:</br>
 ![Modelo Implemtado em MySQL](ecommerce_sql.png) 
