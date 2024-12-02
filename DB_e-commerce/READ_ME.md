@@ -1,4 +1,3 @@
-
 # Projeto Básico de Banco de Dados Usando MySQL</br>
 ![Digital Innovation One](DIO_logo.svg) 
 
@@ -8,7 +7,7 @@
 - Implementar um modelo de e-commecer em MySQL, como requisito para o bootcamp DIO, Suzano - Análise de Dados com Power BI, para o módulo:"Construíndo seu Primeiro Projeto Lógico de Banco de Dados".
 
 **Limitações**
-- Não foram implementados *TRIGGERS*, *STORED PROCEDURES* ou *VIEWS*, por estarem fora do escope de projeto. 👍
+- Não foram implementados *TRIGGERS*, *STORED PROCEDURES* ou *VIEWS*, por estarem fora do escopo de projeto. 👍
 
 ### Este repositório tem como objetivo:
 - Implementar a modelagem lógica do cenário de e-commerce;
@@ -94,22 +93,22 @@ fazer algumas verificações lógicas em algumas queries, não sendo estes autor
 </br>
 
 Diagrama ERR:</br>
-<img src="./imgs/visao_comp.png" width=100%>
+<img src="./ecommerce/ecommerce_Comp.svg" width=100%>
 
 Generalização de Cliente:</br>
-<img src="./imgs/heranca.svg" width=50%>
+<img src="./ecommerce/ecommerce_Cliente_Herança.svg" width=50%>
 
 Entidades Auxiliares de Cliente:</br>
-<img src="./imgs/Emtidades_aux.svg">
+<img src="./ecommerce/ecommerce_Entidades_AUX.svg">
 
 Entidades Associativas de Pedido:</br>
-<img src="./imgs/EntidadesAssociativasDePedido.svg">
+<img src="./ecommerce/ecommerce_EntidadesRelacionais.svg">
 
 Entidades Associativas de Produto:</br>
-<img src="./imgs/EntidadeAssociativa_Produto_Vendedor.drawio.svg">
+<img src="./ecommerce/ecommerce.estoque.svg">
 
 Metadata:</br>
-<img src="./imgs/Metadata.svg">
+<img src="./ecommerce/geral.MetaAtributos.svg" width=100%>
 
 - Notas sobre a Implementação:
 
@@ -118,7 +117,7 @@ Metadata:</br>
 <img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
 
 <p style="flex-grow: 1; margin: 0;"><em>
-  Algumas tabelas de Junção como entre PedidoItens e Entregas: EntregasItens - foram preteridas em função da execiva granularidade e eveitar Over Design.
+  Algumas tabelas de Junção como entre PedidoItens e Entregas: EntregasItens - foram preteridas em função da execiva granularidade e evitar Over Design.
   </em>
 </p>
 </div>
