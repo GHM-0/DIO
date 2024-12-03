@@ -6,79 +6,114 @@ USE ecommerce;
 SET foreign_key_checks = 0;
 
 TRUNCATE TABLE Clientes;
-INSERT INTO Clientes (nome, identificador, _status)
+INSERT INTO Clientes (nome, identificador, tipo, dataNascimento, sexo,razaoSocial,inscricaoEstadual, _status)
 VALUES
-  -- Pessoa Física
-      ('João Silva', '123.456.789-00', TRUE),                                      -- 01
-      ('Maria Oliveira', '987.654.321-00', TRUE),                                  -- 02
-      ('Carlos Almeida', '111.222.333-44', TRUE),                                  -- 03
-      ('Ana Pereira', '222.333.444-75', TRUE),                                     -- 04
-      ('Roberto Lima', '333.444.555-67', FALSE),                                   -- 05
-      ('Fernanda Costa', '444.555.666-77', FALSE),                                 -- 06
-      ('Luciana Santos', '555.666.777-88', FALSE),                                 -- 07
-      ('Paulo Souza', '666.777.888-99', FALSE),                                    -- 08
-      ('Renato Torres', '777.888.999-00', TRUE),                                   -- 09
-      ('Beatriz Lopes', '888.999.000-11', TRUE),                                   -- 10
-      ('Pedro Gomes', '999.000.111-22', TRUE),                                     -- 11
-      ('Tatiane Rocha', '000.111.222-33', TRUE),                                   -- 12
-      ('Ricardo Mendes', '111.222.333-54', TRUE),                                  -- 13
-      ('Carolina Andrade', '222.333.444-55', TRUE),                                -- 14
-      ('Gabriel Fernandes', '333.444.555-66', TRUE),                               -- 15
+  ('João Silva', '123.456.789-00', 'PF', '1964-11-28', 'M', NULL,NULL,TRUE),    -- 01
+  ('Maria Oliveira', '987.654.321-00', 'PF', '1963-11-28', 'F', NULL,NULL,TRUE),  -- 02
+  ('Carlos Almeida', '111.222.333-44', 'PF', '2011-11-28', 'M', NULL,NULL,TRUE),  -- 03
+  ('Ana Pereira', '222.333.444-75', 'PF', '2001-11-28', 'F', NULL,NULL,TRUE),     -- 04
+  ('Roberto Lima', '333.444.555-67', 'PF', '2002-11-28', 'M', NULL,NULL,FALSE),   -- 05
+  ('Fernanda Costa', '444.555.666-77', 'PF', '1993-11-28', 'F', NULL,NULL,FALSE), -- 06
+  ('Luciana Santos', '555.666.777-88', 'PF', '2005-11-28', 'F', NULL,NULL,FALSE), -- 07
+  ('Paulo Souza', '666.777.888-99', 'PF', '1994-11-28', 'M', NULL,NULL,FALSE),    -- 08
+  ('Renato Torres', '777.888.999-00', 'PF', '2014-11-28', 'M', NULL,NULL,TRUE),   -- 09
+  ('Beatriz Lopes', '888.999.000-11', 'PF', '2006-11-28', 'F', NULL,NULL,TRUE),   -- 10
+  ('Pedro Gomes', '999.000.111-22', 'PF', '2009-11-28', 'M', NULL,NULL,TRUE),     -- 11
+  ('Tatiane Rocha', '000.111.222-33', 'PF', '1998-11-28', 'F',NULL,NULL, TRUE),    -- 12
+  ('Ricardo Mendes', '111.222.333-54', 'PF', '2010-11-28', 'M', NULL,NULL,TRUE),  -- 13
+  ('Carolina Andrade', '222.333.444-55', 'PF', '1992-11-28', 'F', NULL,NULL,TRUE), -- 14
+  ('Gabriel Fernandes', '333.444.555-66', 'PF', '2013-11-28', 'M',NULL,NULL, TRUE),
+  ('A&F Revenda Material de Escritório', '11.111.111/0001-99', 'PJ', NULL,NULL,'A&F Revenda Material de Escritório', '002909389', TRUE),    -- 16
+  ('Overclock Informática LTDA', '22.222.222/0002-88', 'PJ', NULL,NULL,'Overclock Informática LTDA', '339889988', TRUE),                  -- 17
+  ('DasPrints Tonners e Tintas', '33.333.333/0003-77', 'PJ', NULL,NULL,'DasPrints Tonners e Tintas', '553444451', TRUE),                  -- 18
+  ('WarLoard Games &CO', '44.444.444/0004-66', 'PJ', NULL,NULL,'WarLoard Games &CO', '773565555', TRUE),                                -- 19
+  ('ElectroHouse', '55.555.555/0005-44', 'PJ', NULL,NULL,'ElectroHouse', '144242445', FALSE),                                           -- 20
+  ('Killing Giants', '66.666.666/0006-33', 'PJ', NULL,NULL,'Killing Giants', '553444444', FALSE),                                       -- 21
+  ('MotherBoard .inc', '77.777.777/0007-22', 'PJ', NULL,NULL,'MotherBoard .inc', '535442566', FALSE),                                   -- 22
+  ('Beauty and Co', '88.888.888/0008-11', 'PJ', NULL,NULL,'Beauty and Co', '132345236', FALSE),                                          -- 23
+  ('Doginho is Life Petshop', '99.999.999/0009-10', 'PJ', NULL,NULL,'Doginho is Life Petshop', '134256627', TRUE),                       -- 24
+  ('Casa e Co', '10.101.010/0010-01', 'PJ', NULL,NULL,'Casa e Co', '245637667', TRUE),                                                   -- 25
+  ('Player House', '20.202.020/0020-02', 'PJ', NULL,NULL,'Player House', '453465666', TRUE),                                             -- 26
+  ('Small Idols ActionFigures', '30.303.030/0030-03', 'PJ', NULL,NULL,'Small Idols ActionFigures','233666666', TRUE),                   -- 27
+  ('The Band', '40.404.040/0040-04', 'PJ', NULL,NULL,'The Band', '987666666', TRUE),                                                   -- 28
+  ('JFF Informática', '50.505.050/0050-05', 'PJ', NULL,NULL,'JFF Informática', '123333333', TRUE),                                     -- 29
+  ('The Big O', '60.606.060/0060-06', 'PJ', NULL,NULL,'The Big O', '444345565', TRUE);                                                 -- 30
 
-  -- Pessoa Jurídica
-      ('A&F Revenda Material de Escritório', '11.111.111/0001-99', TRUE),          -- 16   CAT 1
-      ('Overclock Informática LTDA', '22.222.222/0002-88', TRUE),                  -- 17   CAT 1 2
-      ('DasPrints Tonners e Tintas', '33.333.333/0003-77', TRUE),                  -- 18   CAT 1
-      ('WarLoard Games &CO', '44.444.444/0004-66', TRUE),                          -- 19   CAT 1 5
-      ('ElectroHouse', '55.555.555/0005-44', FALSE),                               -- 20   CAT 1 2 6
-      ('Killing Giants', '66.666.666/0006-33', FALSE),                             -- 21   CAT 5
-      ('MotherBoard .inc', '77.777.777/0007-22', FALSE),                           -- 22   CAT 1
-      ('Beauty and Co', '88.888.888/0008-11', FALSE),                              -- 23   CAT 4
-      ('Doginho is Life Petshop', '99.999.999/0009-10', TRUE),                     -- 24   CAT 3
-      ('Casa e Co', '10.101.010/0010-01', TRUE),                                   -- 25   CAT 6
-      ('Player House', '20.202.020/0020-02', TRUE),                                -- 26   CAT 1 2
-      ('Small Idols ActionFigures', '30.303.030/0030-03', TRUE),                   -- 27   CAT 5
-      ('The Band', '40.404.040/0040-04', TRUE),                                    -- 28   CAT 4
-      ('JFF Informática', '50.505.050/0050-05', TRUE),                             -- 29   CAT 1
-      ('The Big O', '60.606.060/0060-06', TRUE);                                   -- 30   CAT 6
 
-TRUNCATE TABLE PessoaFisica;
-INSERT INTO PessoaFisica(dataNascimento, sexo, idCliente)
-VALUES
-    ('1964-11-28','M',1),
-    ('1963-11-28','F',2),
-    ('2011-11-28','M',3),
-    ('2001-11-28','F',4),
-    ('2002-11-28','M',5),
-    ('1993-11-28','F',6),
-    ('2005-11-28','F',7),
-    ('1994-11-28','M',8),
-    ('2014-11-28','M',9),
-    ('2006-11-28','F',10),
-    ('2009-11-28','M',11),
-    ('1998-11-28','F',12),
-    ('2010-11-28','M',13),
-    ('1992-11-28','F',14),
-    ('2013-11-28','M',15);
-
-TRUNCATE TABLE PessoaJuridica;
-INSERT INTO PessoaJuridica(razaoSocial, inscricaoEstadual, idCliente)
-VALUES
-    ('Empresa A','002909389',16),
-    ('Empresa B','339889988',17),
-    ('Empresa C','553444451',18),
-    ('Empresa D','773565555',19),
-    ('Empresa E','144242445',20),
-    ('Empresa F','553444444',21),
-    ('Empresa G','535442566',22),
-    ('Empresa H','132345236',23),
-    ('Empresa I','134256627',24),
-    ('Empresa J','245637667',25),
-    ('Empresa K','453465666',26),
-    ('Empresa L','233666666',27),
-    ('Empresa M','987666666',28),
-    ('Empresa N','123333333',29),
-    ('Empresa O','444345565',30);
+# TRUNCATE TABLE Clientes;
+# INSERT INTO Clientes (nome, identificador, _status)
+# VALUES
+#   -- Pessoa Física
+#       ('João Silva', '123.456.789-00', TRUE),                                      -- 01
+#       ('Maria Oliveira', '987.654.321-00', TRUE),                                  -- 02
+#       ('Carlos Almeida', '111.222.333-44', TRUE),                                  -- 03
+#       ('Ana Pereira', '222.333.444-75', TRUE),                                     -- 04
+#       ('Roberto Lima', '333.444.555-67', FALSE),                                   -- 05
+#       ('Fernanda Costa', '444.555.666-77', FALSE),                                 -- 06
+#       ('Luciana Santos', '555.666.777-88', FALSE),                                 -- 07
+#       ('Paulo Souza', '666.777.888-99', FALSE),                                    -- 08
+#       ('Renato Torres', '777.888.999-00', TRUE),                                   -- 09
+#       ('Beatriz Lopes', '888.999.000-11', TRUE),                                   -- 10
+#       ('Pedro Gomes', '999.000.111-22', TRUE),                                     -- 11
+#       ('Tatiane Rocha', '000.111.222-33', TRUE),                                   -- 12
+#       ('Ricardo Mendes', '111.222.333-54', TRUE),                                  -- 13
+#       ('Carolina Andrade', '222.333.444-55', TRUE),                                -- 14
+#       ('Gabriel Fernandes', '333.444.555-66', TRUE),                               -- 15
+#
+#   -- Pessoa Jurídica
+#       ('A&F Revenda Material de Escritório', '11.111.111/0001-99', TRUE),          -- 16   CAT 1
+#       ('Overclock Informática LTDA', '22.222.222/0002-88', TRUE),                  -- 17   CAT 1 2
+#       ('DasPrints Tonners e Tintas', '33.333.333/0003-77', TRUE),                  -- 18   CAT 1
+#       ('WarLoard Games &CO', '44.444.444/0004-66', TRUE),                          -- 19   CAT 1 5
+#       ('ElectroHouse', '55.555.555/0005-44', FALSE),                               -- 20   CAT 1 2 6
+#       ('Killing Giants', '66.666.666/0006-33', FALSE),                             -- 21   CAT 5
+#       ('MotherBoard .inc', '77.777.777/0007-22', FALSE),                           -- 22   CAT 1
+#       ('Beauty and Co', '88.888.888/0008-11', FALSE),                              -- 23   CAT 4
+#       ('Doginho is Life Petshop', '99.999.999/0009-10', TRUE),                     -- 24   CAT 3
+#       ('Casa e Co', '10.101.010/0010-01', TRUE),                                   -- 25   CAT 6
+#       ('Player House', '20.202.020/0020-02', TRUE),                                -- 26   CAT 1 2
+#       ('Small Idols ActionFigures', '30.303.030/0030-03', TRUE),                   -- 27   CAT 5
+#       ('The Band', '40.404.040/0040-04', TRUE),                                    -- 28   CAT 4
+#       ('JFF Informática', '50.505.050/0050-05', TRUE),                             -- 29   CAT 1
+#       ('The Big O', '60.606.060/0060-06', TRUE);                                   -- 30   CAT 6
+#
+# TRUNCATE TABLE PessoaFisica;
+# INSERT INTO PessoaFisica(dataNascimento, sexo, idCliente)
+# VALUES
+#     ('1964-11-28','M',1),
+#     ('1963-11-28','F',2),
+#     ('2011-11-28','M',3),
+#     ('2001-11-28','F',4),
+#     ('2002-11-28','M',5),
+#     ('1993-11-28','F',6),
+#     ('2005-11-28','F',7),
+#     ('1994-11-28','M',8),
+#     ('2014-11-28','M',9),
+#     ('2006-11-28','F',10),
+#     ('2009-11-28','M',11),
+#     ('1998-11-28','F',12),
+#     ('2010-11-28','M',13),
+#     ('1992-11-28','F',14),
+#     ('2013-11-28','M',15);
+#
+# TRUNCATE TABLE PessoaJuridica;
+# INSERT INTO PessoaJuridica(razaoSocial, inscricaoEstadual, idCliente)
+# VALUES
+#     ('Empresa A','002909389',16),
+#     ('Empresa B','339889988',17),
+#     ('Empresa C','553444451',18),
+#     ('Empresa D','773565555',19),
+#     ('Empresa E','144242445',20),
+#     ('Empresa F','553444444',21),
+#     ('Empresa G','535442566',22),
+#     ('Empresa H','132345236',23),
+#     ('Empresa I','134256627',24),
+#     ('Empresa J','245637667',25),
+#     ('Empresa K','453465666',26),
+#     ('Empresa L','233666666',27),
+#     ('Empresa M','987666666',28),
+#     ('Empresa N','123333333',29),
+#     ('Empresa O','444345565',30);
 
 TRUNCATE TABLE Enderecos;
 INSERT INTO Enderecos (estado, cidade, bairro, rua, numero, complemento, CEP, tipo, _status, idCliente)

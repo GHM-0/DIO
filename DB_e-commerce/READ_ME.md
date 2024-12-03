@@ -117,7 +117,7 @@ Metadata:</br>
 <img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
 
 <p style="flex-grow: 1; margin: 0;"><em>
-  Algumas tabelas de Junção como entre PedidoItens e Entregas: EntregasItens - foram preteridas em função da execiva granularidade e evitar Over Design.
+  Algumas tabelas de Junção como entre PedidoItens e Entregas: EntregasItens - foram preteridas em função da execiva granularidade e evitar Overdesign.
   </em>
 </p>
 </div>

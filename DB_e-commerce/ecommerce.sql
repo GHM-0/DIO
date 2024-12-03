@@ -13,42 +13,59 @@ CREATE TABLE Clientes(
     nome VARCHAR(250) NOT NULL,                           -- Abstrai nome em 'Pessoa Física' e nome_fantasia em 'Pessoa Jurídica'
     identificador VARCHAR(29) NOT NULL UNIQUE,            -- Abstrai CPF em 'Pessoa Física' e CNPJ em 'Pessoa Jurídica', Considerar REGEX
 
+    tipo ENUM('PF','PJ') NOT NULL,                        -- Atributo Seletor
+
+    -- Pessoa Física
+    dataNascimento DATE DEFAULT NULL,                     -- Estabelece Faixa Etária
+    sexo ENUM('M', 'F', 'O') DEFAULT NULL,                -- Estabelece Genero
+
+    -- Pessoa Jurídica
+    razaoSocial VARCHAR(250) DEFAULT NULL   ,             -- Poderia estar atrelada a várias nomes fantasia?
+    inscricaoEstadual VARCHAR(20) DEFAULT NULL,
+
 -- Metadata
     id INT AUTO_INCREMENT PRIMARY KEY,
     _status TINYINT DEFAULT TRUE,                         -- Ativo ou Inativo
     criacao DATETIME DEFAULT CURRENT_TIMESTAMP,           -- Data de criação
-    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP          -- Data da ultima alteração
+    alteracao DATETIME DEFAULT CURRENT_TIMESTAMP,         -- Data da ultima alteração
+
+    CHECK (
+        (tipo = 'PF' AND dataNascimento IS NOT NULL AND sexo IS NOT NULL AND razaoSocial IS NULL AND inscricaoEstadual IS NULL)
+        OR
+        (tipo = 'PJ' AND razaoSocial IS NOT NULL AND inscricaoEstadual IS NOT NULL AND dataNascimento IS NULL AND sexo IS NULL)
+        )
+
 );
 
 -- GPT hints
 -- TRIGGER: Atualizar `Alteração` para a data atual quando um cliente for alterado (AFTER UPDATE).
 -- TRIGGER: Impedir exclusão se o cliente estiver relacionado a endereços, contatos ou pagamentos (BEFORE DELETE). ? ON DELETE CASCADE
 
-CREATE TABLE PessoaFisica(
+-- CREATE TABLE PessoaFisica(
 
-    dataNascimento DATE NOT NULL,                     -- Estabelece Faixa Etária
+--     dataNascimento DATE NOT NULL,                     -- Estabelece Faixa Etária
 
  -- Atributo Seletor
-    sexo ENUM('M', 'F', 'O') NOT NULL,                -- Estabelece Genero
+--    sexo ENUM('M', 'F', 'O') NOT NULL,                -- Estabelece Genero
 
 -- Metadata
-    idCliente INT NOT NULL,
-    FOREIGN KEY (idCliente) REFERENCES Clientes(id)
-);
+--    idCliente INT NOT NULL,
+--    FOREIGN KEY (idCliente) REFERENCES Clientes(id)
+-- );
 
 -- GPT hints
 -- TRIGGER: Garantir exclusividade entre `PessoaFisica` e `PessoaJuridica` para um mesmo `idCliente` (BEFORE INSERT).
 
-CREATE TABLE PessoaJuridica(
+-- CREATE TABLE PessoaJuridica(
 
 --  Pessoa Jurídica
-    razaoSocial VARCHAR(250) NOT NULL,           -- Poderia estar atrelada a várias nomes fantasia?
-    inscricaoEstadual VARCHAR(20) NOT NULL UNIQUE,
+--    razaoSocial VARCHAR(250) NOT NULL,           -- Poderia estar atrelada a várias nomes fantasia?
+--    inscricaoEstadual VARCHAR(20) NOT NULL UNIQUE,
 
 -- Metadata
-    idCliente INT NOT NULL,
-    FOREIGN KEY (idCliente) REFERENCES Clientes(id)
-);
+--    idCliente INT NOT NULL,
+--    FOREIGN KEY (idCliente) REFERENCES Clientes(id)
+-- );
 
 -- GPT hints
 -- TRIGGER: Garantir exclusividade entre `PessoaFisica` e `PessoaJuridica`, para um mesmo `idCliente` (BEFORE INSERT).

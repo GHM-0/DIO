@@ -3,10 +3,6 @@ USE ecommerce;
 -- Pure GTP hints, Sobre os registros
 SELECT 'Clientes' AS Tabela, COUNT(*) AS Quantidade_Total, SUM(CASE WHEN _status = TRUE THEN 1 ELSE 0 END) AS Ativo, SUM(CASE WHEN _status = FALSE THEN 1 ELSE 0 END) AS Inativos
 FROM Clientes UNION ALL
-SELECT'PessoaFisica',COUNT(*),NULL AS Ativos,NULL AS Inativos
-FROM PessoaFisica UNION ALL
-SELECT'PessoaJuridica',COUNT(*),NULL AS Ativos, NULL AS Inativos
-FROM PessoaJuridica UNION ALL
 SELECT'Enderecos',COUNT(*),SUM(CASE WHEN _status = TRUE THEN 1 ELSE 0 END),SUM(CASE WHEN _status = FALSE THEN 1 ELSE 0 END)
 FROM Enderecos UNION ALL
 SELECT'Contatos',COUNT(*),SUM(CASE WHEN _status = TRUE THEN 1 ELSE 0 END),SUM(CASE WHEN _status = FALSE THEN 1 ELSE 0 END)
@@ -57,7 +53,6 @@ LEFT JOIN Pedidos AS P ON PI.idPedido = P.id
 WHERE P._status='Concluído' AND PR._status=TRUE                            -- Logicamente devem haver em Estoque
 GROUP BY PR.nome;
 
-
 -- Produtos fora de catalogo
 SELECT P.nome, E.quantidade, E.unidade_preco FROM Estoque AS E
 JOIN Produtos AS P ON E.id = P.id
@@ -67,17 +62,6 @@ WHERE quantidade=0;
 SELECT C.nome,C.id FROM Clientes AS C
 LEFT JOIN Estoque AS E ON C.id = E.idVendedor
 WHERE E.idVendedor IS NULL;
-
---
-SELECT C.id,C.nome,FP.metodo,FP.id FROM PessoaFisica as PF
-LEFT JOIN Clientes C on PF.idCliente = C.id
-LEFT JOIN FormasPagamento FP on C.id = FP.idCliente
-WHERE FP._status=TRUE
-ORDER BY FP.metodo;
-
--- Pessoas Físicas
-SELECT * FROM PessoaFisica AS PF
-LEFT JOIN Clientes AS C on PF.idCliente = C.id;
 
 -- Calcular Valor_Total em Pagamento para Pedidos
 SELECT
@@ -167,5 +151,3 @@ JOIN Produtos AS PR ON E.idProduto = PR.id
 JOIN Clientes AS C ON E.idVendedor = C.id
 WHERE PR._status=TRUE AND E.quantidade>0 AND E._status=TRUE AND C._status=TRUE
 ORDER BY  C.nome;
-
-
