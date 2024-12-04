@@ -107,7 +107,7 @@ Entidades Associativas de Produto:</br>
 <img src="./ecommerce/ecommerce.estoque.svg" width=100%></br>
 
 Metadata:</br>
-<img src="./ecommerce/geral.MetaAtributos.svg" width=100%></br>
+<img src="./ecommerce/MetaAtributos.svg" width=100%></br>
 
 - Notas sobre a Implementação:
 
