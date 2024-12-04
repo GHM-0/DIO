@@ -53,6 +53,8 @@ LEFT JOIN Pedidos AS P ON PI.idPedido = P.id
 WHERE P._status='Concluído' AND PR._status=TRUE                            -- Logicamente devem haver em Estoque
 GROUP BY PR.nome;
 
+
+
 -- Produtos fora de catalogo
 SELECT P.nome, E.quantidade, E.unidade_preco FROM Estoque AS E
 JOIN Produtos AS P ON E.id = P.id
@@ -131,7 +133,7 @@ LEFT JOIN Pedidos P ON C.id = P.idCliente   -- Clientes
 WHERE (E.idVendedor IS NULL) AND  (P.idCliente IS NULL);
 
 
--- Responde Quais Clientes Não Possuem Pedidos ou Estoques  & Estão Inativos
+-- Responde Quais Clientes Não Possuem Pedidos ou Estoques & Estão Inativos
 SELECT DISTINCT C.id AS ClienteID,E.idVendedor AS Vendedor,P.idCliente AS Cliente, C.nome AS Cliente FROM Clientes AS C
 LEFT JOIN Estoque E ON C.id = E.idVendedor  -- Vendedores
 LEFT JOIN Pedidos P ON C.id = P.idCliente   -- Clientes

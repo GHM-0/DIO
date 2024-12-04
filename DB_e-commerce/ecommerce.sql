@@ -4,7 +4,7 @@ USE ecommerce;
 
 -- Considerações
 --  Granularidade mais alta que o desejável, JOINS mais complexos com menos campos nulos, embora queira evitar Overdesign
---  Os campos de '_status' quanto boleanos, 'criacao' e 'alteracao' visam registros históricos básicos, evitando tabelas auxiliares de resgistroModificações
+--  Os campos de '_status' quanto boleanos, 'criacao' e 'alteracao' visam registros históricos básicos, evitando tabelas auxiliares de registros/Modificações
 
 -- Generaliza os Papeis de 'Vendedor e Cliente' mantém a distinção entre 'Pessoa Física' e 'Pessoa Jurídica'
 CREATE TABLE Clientes(
@@ -17,7 +17,7 @@ CREATE TABLE Clientes(
 
     -- Pessoa Física
     dataNascimento DATE DEFAULT NULL,                     -- Estabelece Faixa Etária
-    sexo ENUM('M', 'F', 'O') DEFAULT NULL,                -- Estabelece Genero
+    sexo ENUM('M', 'F', 'O') DEFAULT NULL,                -- Estabelece Gênero
 
     -- Pessoa Jurídica
     razaoSocial VARCHAR(250) DEFAULT NULL   ,             -- Poderia estar atrelada a várias nomes fantasia?
