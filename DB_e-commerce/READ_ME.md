@@ -82,7 +82,7 @@ Aplicar o mapeamento para o  cenário:
 <img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
 
 <p style="flex-grow: 1; margin: 0;"><em>
-    Embora a granularidade do modelo possa ser inadequada para fins práticos, optei em utilizar um modelo com granularidade elevada, os nomes das tabelas podem não ser adequadas, bem como estarem com colunas faltantes e atriutos deslocado. Não houveram Casos de uso detalhados para embasar este modelo.
+    Embora a granularidade do modelo possa ser inadequada para fins práticos, optei em utilizar um modelo com granularidade elevada, os nomes das tabelas podem não ser adequadas, bem como estarem com colunas faltantes e atributos deslocado. Não houveram Casos de uso detalhados para embasar este modelo.
   </em>
 </p>
 </div>
