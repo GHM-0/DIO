@@ -89,26 +89,25 @@ Aplicar o mapeamento para o  cenário:
 </br>
 Ps.:CHAT GP/Gemimi foram usados exclusívamente para gerar massa de dados, e prover uma visão crítica da DataBase,
 fazer algumas verificações lógicas em algumas queries, não sendo estes autores de quaisquer queries ou tabelas neste projeto, suas adições estão cinalizadas como "GTP hints".
-
 </br>
-
+</br>
 Diagrama ERR:</br>
-<img src="./ecommerce/ecommerce_Comp.svg" width=100%>
+<img src="./ecommerce/ecommerce_Comp.svg" width=100%></br>
 
 Generalização de Cliente:</br>
-<img src="./ecommerce/ecommerce_Cliente_Herança.svg" width=50%>
+<img src="./ecommerce/ecommerce_Cliente_Herança.svg" width=50%></br>
 
 Entidades Auxiliares de Cliente:</br>
-<img src="./ecommerce/ecommerce_Entidades_AUX.svg">
+<img src="./ecommerce/ecommerce_Entidades_AUX.svg" width=100%></br>
 
 Entidades Associativas de Pedido:</br>
-<img src="./ecommerce/ecommerce_EntidadesRelacionais.svg">
+<img src="./ecommerce/ecommerce_EntidadesRelacionais.svg" width=100%></br>
 
 Entidades Associativas de Produto:</br>
-<img src="./ecommerce/ecommerce.estoque.svg">
+<img src="./ecommerce/ecommerce.estoque.svg" width=100%></br>
 
 Metadata:</br>
-<img src="./ecommerce/geral.MetaAtributos.svg" width=100%>
+<img src="./ecommerce/geral.MetaAtributos.svg" width=100%></br>
 
 - Notas sobre a Implementação:
 
