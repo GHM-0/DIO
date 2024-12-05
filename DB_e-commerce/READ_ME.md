@@ -17,16 +17,16 @@
 
 ## Descrição do Desafio:
 
-Replicar a modelagem do projeto lógico de banco de dados para o cenário de e-commerce.
+- Replicar a modelagem do projeto lógico de banco de dados para o cenário de e-commerce.
 
-Definições de chave primária e estrangeira, assim como as constraints presentes no cenário modelado. 
-Modelar relacionamentos presentes no modelo EER.
+- Definições de chave primária e estrangeira, assim como as constraints presentes no cenário modelado. 
+- Modelar relacionamentos presentes no modelo EER.
 
-Aplicar o mapeamento de modelos aos refinamentos propostos no módulo de modelagem conceitual.
+- Aplicar o mapeamento de modelos aos refinamentos propostos no módulo de modelagem conceitual.
 
-Criação do Script SQL para criação do esquema do banco de dados.
+- Criação do Script SQL para criação do esquema do banco de dados.
 
-Persistência de dados para realização de testes. Especificação de queries mais complexas dos que apresentadas durante a explicação do desafio. 
+- Persistência de dados para realização de testes. Especificação de queries mais complexas dos que apresentadas durante a explicação do desafio. 
 
 Criação de queries SQL com as cláusulas abaixo:
 
