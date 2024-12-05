@@ -4,7 +4,7 @@
 ## #Objetivos e Limitações
 
 **Objetivos deste Projeto**
-- Implementar um modelo de e-commecer em MySQL, como requisito para o bootcamp DIO, Suzano - Análise de Dados com Power BI, para o módulo:"Construíndo seu Primeiro Projeto Lógico de Banco de Dados".
+- Implementar um modelo de e-commecer em MySQL, como requisito para o bootcamp DIO, Suzano - Análise de Dados com Power BI, para o módulo "Construíndo seu Primeiro Projeto Lógico de Banco de Dados".
 
 **Limitações**
 - Não foram implementados *TRIGGERS*, *STORED PROCEDURES* ou *VIEWS*, por estarem fora do escopo de projeto. 👍
