@@ -18,24 +18,20 @@
 ## Descrição do Desafio:
 
 - Replicar a modelagem do projeto lógico de banco de dados para o cenário de e-commerce.
-
 - Definições de chave primária e estrangeira, assim como as constraints presentes no cenário modelado. 
 - Modelar relacionamentos presentes no modelo EER.
-
 - Aplicar o mapeamento de modelos aos refinamentos propostos no módulo de modelagem conceitual.
-
 - Criação do Script SQL para criação do esquema do banco de dados.
-
 - Persistência de dados para realização de testes. Especificação de queries mais complexas dos que apresentadas durante a explicação do desafio. 
 
 Criação de queries SQL com as cláusulas abaixo:
 
-- Recuperações simples com SELECT Statement
-- Filtros com WHERE Statement
-- Crie expressões para gerar atributos derivados
-- Defina ordenações dos dados com ORDER BY
-- Condições de filtros aos grupos – HAVING Statement
-- Crie junções entre tabelas para fornecer uma perspectiva mais complexa dos dados
+1. Recuperações simples com SELECT Statement
+2. Filtros com WHERE Statement
+3. Crie expressões para gerar atributos derivados
+4. Defina ordenações dos dados com ORDER BY
+5. Condições de filtros aos grupos – HAVING Statement
+6. Crie junções entre tabelas para fornecer uma perspectiva mais complexa dos dados
 
 **Diretrizes**
 Não há um mínimo de queries a serem realizadas;
