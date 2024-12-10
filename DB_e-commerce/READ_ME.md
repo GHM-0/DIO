@@ -45,7 +45,7 @@ Os tópicos supracitados devem estar presentes nas queries;
 - Adicione ao Readme a descrição do projeto lógico para fornecer o contexto sobre seu esquema lógico apresentado.
 
 Objetivo:
-Aplicar o mapeamento para o  cenário:
+Aplicar o mapeamento para o cenário:
 
 - “Refine o modelo apresentado acrescentando os seguintes pontos”
 
@@ -73,13 +73,13 @@ Aplicar o mapeamento para o  cenário:
 
 - Notas sobre este projeto:
 
-<div style="display: flex; align-items: center; padding: 10px; background-color:  #42DF; border-radius: 10px; position: relative; max-width: 80%; margin:12px; justify-content: space-between;">
+<div style="display: flex; align-items: center; padding: 10px; background-color:#42DF; border-radius: 10px; position: relative; max-width: 80%; margin:12px; justify-content: space-between;">
 
 <img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
 
 <p style="flex-grow: 1; margin: 0;"><em>
     Embora a granularidade do modelo possa ser inadequada para fins práticos, optei em utilizar um modelo com granularidade elevada, os nomes das tabelas podem não ser adequadas, bem como estarem com colunas faltantes e atríbutos deslocados. Não haviam Casos de Uso detalhados para embasar este modelo.
-  </em>
+</em>
 </p>
 </div>
 </br>
@@ -91,7 +91,7 @@ Diagrama ERR:</br>
 <img src="./ecommerce/ecommerce_Comp.svg" width=100%></br>
 
 Generalização de Cliente:</br>
-<img src="./ecommerce/ecommerce_Cliente_Herança.svg" width=50%></br>
+<img src="./ecommerce/ecommerce_Cliente_Herança.svg" width=100%></br>
 
 Entidades Auxiliares de Cliente:</br>
 <img src="./ecommerce/ecommerce_Entidades_AUX.svg" width=100%></br>
@@ -107,7 +107,7 @@ Metadata:</br>
 
 - Notas sobre a Implementação:
 
-<div style="display: flex; align-items: center; padding: 10px; background-color:  #42DF; border-radius: 10px; position: relative; max-width: 80%; margin:12px; justify-content: space-between;">
+<div style="display: flex; align-items: center; padding: 10px; background-color:#42DF; border-radius: 10px; position: relative; max-width: 80%; margin:12px; justify-content: space-between;">
 
 <img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
 
