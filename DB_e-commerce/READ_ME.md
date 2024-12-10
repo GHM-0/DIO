@@ -4,7 +4,7 @@
 ## #Objetivos e Limitações
 
 **Objetivos deste Projeto**
-- Implementar um modelo de e-commecer em MySQL, como requisito para o bootcamp DIO, Suzano - Análise de Dados com Power BI, para o módulo "Construíndo seu Primeiro Projeto Lógico de Banco de Dados".
+- Implementar um modelo de e-commecer em MySQL, como requisito para o bootcamp DIO, Suzano - Análise de Dados com Power BI, para o módulo "Construindo seu Primeiro Projeto Lógico de Banco de Dados".
 
 **Limitações**
 - Não foram implementados *TRIGGERS*, *STORED PROCEDURES* ou *VIEWS*, por estarem fora do escopo de projeto. 👍
@@ -57,10 +57,10 @@ Aplicar o mapeamento para o  cenário:
 
 - Quantos pedidos foram feitos por cada cliente?
 - Algum vendedor também é fornecedor?
-- Relação de produtos fornecedores e estoques;
+- Relação de produtos, fornecedores e estoques;
 - Relação de nomes dos fornecedores e nomes dos produtos;
 
-## Estrutua Deste Projeto
+## Estrutura Deste Projeto
 
 <pre>
 [Arquivo]                     [Conteúdo]
@@ -78,13 +78,13 @@ Aplicar o mapeamento para o  cenário:
 <img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
 
 <p style="flex-grow: 1; margin: 0;"><em>
-    Embora a granularidade do modelo possa ser inadequada para fins práticos, optei em utilizar um modelo com granularidade elevada, os nomes das tabelas podem não ser adequadas, bem como estarem com colunas faltantes e atributos deslocado. Não houveram Casos de uso detalhados para embasar este modelo.
+    Embora a granularidade do modelo possa ser inadequada para fins práticos, optei em utilizar um modelo com granularidade elevada, os nomes das tabelas podem não ser adequadas, bem como estarem com colunas faltantes e atríbutos deslocados. Não haviam Casos de Uso detalhados para embasar este modelo.
   </em>
 </p>
 </div>
 </br>
-Ps.:CHAT GP/Gemimi foram usados exclusívamente para gerar massa de dados, e prover uma visão crítica da DataBase,
-fazer algumas verificações lógicas em algumas queries, não sendo estes autores de quaisquer queries ou tabelas neste projeto, suas adições estão cinalizadas como "GTP hints".
+Ps.:CHAT GP/Gemimi foram usados exclusivamente para gerar massa de dados e prover uma visão crítica da DataBase,
+fazer algumas verificações lógicas em algumas queries, não sendo estes autores de quaisquer queries ou tabelas neste projeto, suas adições estão sinalizadas como "GTP hints".
 </br>
 </br>
 Diagrama ERR:</br>
@@ -112,7 +112,7 @@ Metadata:</br>
 <img src="./user2x.svg" alt="Meu avatar" style="height: 80px; width: auto; margin-right: 10px;">
 
 <p style="flex-grow: 1; margin: 0;"><em>
-  Algumas tabelas de Junção como entre PedidoItens e Entregas: EntregasItens - foram preteridas em função da execiva granularidade e evitar Overdesign.
+  Algumas tabelas de Junção, como entre PedidoItens e Entregas: EntregasItens - foram preteridas em função da excessiva granularidade e evitar Overdesign.
   </em>
 </p>
 </div>
