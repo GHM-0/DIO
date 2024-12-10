@@ -118,5 +118,5 @@ Metadata:</br>
 </div>
 </br>
 
-Implemantção em MySQL:</br>
+Implemantação em MySQL:</br>
 ![Modelo Implemtado em MySQL](ecommerce_sql.png) 
