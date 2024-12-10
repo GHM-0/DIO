@@ -22,7 +22,7 @@
 - Modelar relacionamentos presentes no modelo EER.
 - Aplicar o mapeamento de modelos aos refinamentos propostos no módulo de modelagem conceitual.
 - Criação do Script SQL para criação do esquema do banco de dados.
-- Persistência de dados para realização de testes. Especificação de queries mais complexas dos que apresentadas durante a explicação do desafio. 
+- Persistência de dados para realização de testes. Especificação de queries mais complexas do que as apresentadas durante a explicação do desafio. 
 
 Criação de queries SQL com as cláusulas abaixo:
 
@@ -119,4 +119,4 @@ Metadata:</br>
 </br>
 
 Implemantação em MySQL:</br>
-![Modelo Implemtado em MySQL](ecommerce_sql.png) 
+![Modelo Implementado em MySQL](ecommerce_sql.png) 
