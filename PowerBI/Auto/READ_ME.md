@@ -65,7 +65,7 @@ Parte 2:
 | Country               | object         | String                           |
 | Product               | object         | String                           |
 | Discount Band         | object         | String, Métrica Interna          |
-| Units Sold            | float64        | Deveria ser Integer              |
+| Units Sold            | float64        | Integer, Unidades Vendidas       |
 | Manufacturing Price   | int64          | Métrica Interna                  |
 | Sale Price            | int64          | Métrica Interna                  |
 | Gross Sales           | float64        | Valor Nominal                    |
@@ -130,3 +130,9 @@ O segmento "O Prejuízo do Segmento Enterprise Desaparece do gráfico"
 </p>
 </div>
 </br>
+
+Visão Final do Dashboard:<br>
+<img src="./fig/PowerBI/Auto-1.jpg" alt="" style="height: 400px; width: auto;"><img src="./fig/PowerBI/Auto-2.jpg" alt="" style="height: 400px; width: auto;">
+<img src="./fig/PowerBI/Auto-3.jpg" alt="" style="height: 400px; width: auto;"><img src="./fig/PowerBI/Auto-4.jpg" alt="" style="height: 400px; width: auto;">
+<img src="./fig/PowerBI/Auto-5.jpg" alt="" style="height: 400px; width: auto;">
+
